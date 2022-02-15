@@ -169,7 +169,7 @@ function fillContentDay(lessonsArray, day) {
             dayContainer.push(lessonsArray[i])} 
             else { dayContainer.push({
                 num: '',
-                title: weekendsDay.title,
+                title: '',
                 room: '',
                 type: '',
                 teacher: '',
