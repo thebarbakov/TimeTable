@@ -117,7 +117,6 @@ function fillCallendar(day) {
                 weekDaysFromCalendarMb[i].textContent = `${copyDay.getDate()}.${(copyDay.getMonth() + 1)}`
                 copyDay = new Date(normDay)
             }
-            
             break; 
 } 
 }
@@ -167,8 +166,18 @@ function fillContentDay(lessonsArray, day) {
             } else {
             const lessonDate = new Date(`${today.getFullYear()}, ${lessonsArray[i].until.split('.')[1]}, ${lessonsArray[i].until.split('.')[0]}`);
             if (date <= lessonDate || lessonsArray[i].until === '') {
-            dayContainer.push(lessonsArray[i])}
+            dayContainer.push(lessonsArray[i])} 
+            else { dayContainer.push({
+                num: '',
+                title: weekendsDay.title,
+                room: '',
+                type: '',
+                teacher: '',
+                until: ''
+            })
             }
+            }
+            
         } else {
             dayContainer.push(specialLesson)
         }
@@ -233,4 +242,3 @@ function setWeekName() {
     weekName.textContent = weekLessons[isWeekUnderLine()].title
 }
 completeWeek(today)
-

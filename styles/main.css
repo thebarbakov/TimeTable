@@ -79,6 +79,7 @@
     grid-template-columns: 100%;
     row-gap: 10px;
     padding-top: 20px;
+    min-width: 90%;
 
 }
 
@@ -111,11 +112,13 @@
 
 .lesson__title {
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 900;
     max-height: 30px;
     max-width: 80%;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
+    
 }
 
 .lesson__type {
