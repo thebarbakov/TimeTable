@@ -4,14 +4,18 @@ let firstDay = weekDaysFromCalendarMb[0].textContent
 let lastDay = weekDaysFromCalendarMb[6].textContent
 
 function plusDay(day){
-    let date = new Date(`${today.getFullYear()}, ${day.split('.')[1]}, ${day.split('.')[0]}`);
+    let date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
+    console.log(date);
     date.setDate(date.getDate() + 1);
+    console.log(date);
     return date;
 }
 
 function minusDay(day){
-    let date = new Date(`${today.getFullYear()}, ${day.split('.')[1]}, ${day.split('.')[0]}`);
+    let date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
+    console.log(date);
     date.setDate(date.getDate() - 1)
+    console.log(date);
     return date;
 }
 

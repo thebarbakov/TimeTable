@@ -143,7 +143,7 @@ function createTimeCard(number, period) {
 }
 
 function fillContentDay(lessonsArray, day) {
-    const date = new Date(`${today.getFullYear()}, ${day.split('.')[1]}, ${day.split('.')[0]}`);
+    const date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
     const dayContainer = [];
     const weekendsDay = weekends.find(function (value) {
         return (value.date.includes(day));
@@ -164,10 +164,10 @@ function fillContentDay(lessonsArray, day) {
                     until: ''
                 })
             } else {
-            const lessonDate = new Date(`${today.getFullYear()}, ${lessonsArray[i].until.split('.')[1]}, ${lessonsArray[i].until.split('.')[0]}`);
+            const lessonDate = new Date(`${lessonsArray[i].until.split('.')[1]}/${lessonsArray[i].until.split('.')[0]}/${today.getFullYear()}`);
             if (date <= lessonDate || lessonsArray[i].until === '') {
-            dayContainer.push(lessonsArray[i])} 
-            else { dayContainer.push({
+                dayContainer.push(lessonsArray[i])} 
+                else { dayContainer.push({
                 num: '',
                 title: '',
                 room: '',
@@ -177,7 +177,6 @@ function fillContentDay(lessonsArray, day) {
             })
             }
             }
-            
         } else {
             dayContainer.push(specialLesson)
         }
@@ -242,3 +241,4 @@ function setWeekName() {
     weekName.textContent = weekLessons[isWeekUnderLine()].title
 }
 completeWeek(today)
+
