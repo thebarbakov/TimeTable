@@ -1,0 +1,23 @@
+.animation__close {
+    animation: close .5s forwards;
+}
+@keyframes close {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.animation__open {
+    animation: open .5s forwards;
+}
+@keyframes open {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

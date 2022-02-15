@@ -1,0 +1,247 @@
+.main{
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+}
+.week__title {
+    font-size: 38px;
+    font-weight: bold;
+    display: flex;
+}
+.main__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.week {
+    display: flex;
+    width: 40%;
+    margin: 0 auto;
+    justify-content: space-around;
+    margin-top: 20px;
+    border-bottom: 5px solid #ee3524;
+    padding-bottom: 10px;
+}
+
+.week__name {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.table_pc {
+    display: none;
+    margin: 20px auto 0 auto;
+    max-width: 90%;
+    grid-template: 5% 5% 80%/ 5% repeat(6, 1fr) 10%;
+    min-height: 75vh;
+    max-height: 75vh;
+    justify-items: center;
+    align-items: end;
+    column-gap: 15px;
+    justify-items: center;
+}
+.table__headers {
+    display: flex;
+    text-align: center;
+    font-size: 14px;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+}
+
+.table__headers_date {
+    display: flex;
+    text-align: center;
+    font-size: 18px;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    font-weight: bold;
+    color: #ee3524;
+}
+
+.table__content_time_pc{
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 15px;
+    padding-top: 20px;
+}
+
+.table__content_day_pc {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 100%;
+    row-gap: 10px;
+    padding-top: 20px;
+
+}
+
+.time {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0 8px;
+}
+
+.lesson {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 90%;
+    min-height: 90%;
+    max-width: 90%;
+    max-height: 90%;
+    background-color: #f1f2f2;
+    justify-content: center;
+    padding: 0 8px;
+    border-radius: 10px;
+}
+
+.lesson_empty{
+    background-color: initial;
+    border: solid 3px #f1f2f2;
+}
+
+.lesson__title {
+    font-size: 12px;
+    font-weight: bold;
+    max-height: 30px;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lesson__type {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.lesson__room {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.lesson__teacher {
+    font-size: 10px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.lesson__des {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 960px){
+    .table_pc {
+        display: grid;
+    }
+}
+
+.table_mb{
+    display: none;
+    margin: 20px 10px 0 10px;
+    grid-template: 50px 350px / 15vw 15vw 70vw ;
+    grid-auto-flow: row;
+    grid-auto-rows: 60px 350px;
+    justify-items: center;
+    align-items: end;
+    column-gap: 7px;
+    justify-items: center;
+    align-items: end;
+}
+
+.table__content_day_mb {
+    grid-column: 2 / 4;
+    display: grid;
+    grid-template: repeat(4, 1fr) / 100% ;
+    height: 90%;
+    row-gap: 20px;
+    width: 80%;
+}
+
+.table__content_time_mb {
+    display: grid;
+    width: 100%;
+    grid-template: repeat(4, 1fr) / 100% ;
+    height: 90%;
+    row-gap: 20px;
+    font-size: 14px;
+}
+
+
+@media screen and (max-width: 960px){
+    .main__title{
+        margin: 20px auto 0 auto;
+    }
+    .week {
+        width: 100%;
+    }
+
+    .table_mb {
+        display: grid;
+    }
+
+    .table__headers {
+        max-width: 180px;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px auto 0 auto;
+    }
+
+    .table__headers_date {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+    .lesson {
+        min-width: 90%;
+        min-height: 100%;
+        max-width: 90%;
+        max-height: 100%;
+        padding: 0 8px;
+        border-radius: 10px;
+    }
+    
+    .lesson__title {
+        height: 15px;
+        margin-top: 5px;
+    }
+
+    .lesson__des {
+        margin-top: 5px;
+        justify-content: space-around;
+    }
+
+    .lesson__teacher {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .week__title {
+        font-size: 28px;
+    }
+    .week-day{
+        flex-direction: column;
+        text-align: center;
+    }
+    .week-day::before{
+        font-size: 12px;
+        font-weight: 300;
+        content: 'день недели';
+    }
+
+    .table__headers_date::before {
+        font-size: 14px;
+        font-weight: 300;
+        content: 'дата';
+    }
+}
+

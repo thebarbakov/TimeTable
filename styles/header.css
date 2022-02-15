@@ -1,0 +1,15 @@
+.header {
+    min-width: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px 15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header__logo {
+    height: 7vh;
+    max-width: 150px;
+    min-height: 70px;
+}

@@ -1,0 +1,68 @@
+.header__button {
+    width: 40px;
+    height: 40px;
+    background-size: 60%;
+    background-image: url(../images/cabinet.png);
+    background-repeat: no-repeat;
+    object-fit: scale-down;
+    background-position: center;
+    cursor: pointer;
+    border: transparent;
+    transition: opacity .5s;
+    background-color: transparent;
+}
+
+.header__button:hover {
+    opacity: .6;
+}
+
+.week__button-prev {
+    width: 50px;
+    height: 50px;
+    background-size: 70%;
+    background-image: url(../images/button-right.png);
+    background-repeat: no-repeat;
+    object-fit: scale-down;
+    background-position: center;
+    cursor: pointer;
+    border: transparent;
+    transition: opacity .5s;
+    background-color: transparent;
+}
+
+.week__button-prev:hover {
+    opacity: .6;
+}
+
+.week__button-next {
+    width: 50px;
+    height: 50px;
+    background-size: 70%;
+    background-image: url(../images/button-left.png);
+    background-repeat: no-repeat;
+    object-fit: scale-down;
+    background-position: center;
+    cursor: pointer;
+    border: transparent;
+    transition: opacity .5s;
+    background-color: transparent;
+}
+
+.week__button-next:hover {
+    opacity: .6;
+}
+
+
+@media screen and (max-width: 960px){
+    .week__button-prev{
+        height: 40px;
+        width: 40px;
+    }
+
+    .week__button-next{
+        height: 40px;
+        width: 40px;
+    }
+    
+}
+

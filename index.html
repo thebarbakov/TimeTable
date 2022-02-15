@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="TimeTable 0.2">
+        <meta name="keywords" content="TimeTable 0.2">
+        <meta name="author" content="Yaroslav Barbakov">
+        <link rel="icon" href="./images/logo.png" type="image/png">
+        <link rel="stylesheet" href="./pages/index.css">
+        <title>Расписание ОРМ-211</title>
+    </head>
+    <body class="root">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.png" alt="МГПУ">
+            <button class="header__button"></button>
+        </header>
+        <main class="main">
+            <div class="main__title">
+                <h1 class="week__title">Расписание ОРМ-211</h1>
+                <div class="week">
+                    <button class="week__button-prev" id="week-button-prev"></button>
+                    <p class="week__name">текущая неделя: <span class="week__name_bold"></span></p>
+                    <button class="week__button-next" id="week-button-next"></button>
+                </div>
+            </div>
+            <div class="table_pc">
+                <div class="table__headers"></div>
+                <div class="table__headers">Понедельник</div>
+                <div class="table__headers">Вторник</div>
+                <div class="table__headers">Среда</div>
+                <div class="table__headers">Четверг</div>
+                <div class="table__headers">Пятница</div>
+                <div class="table__headers">Суббота</div>
+                <div class="table__headers">Воскресенье</div>
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="monday-pc">01</div>
+                <div class="table__headers_date" id="tuesday-pc">02</div>
+                <div class="table__headers_date" id="wednesday-pc">03</div>
+                <div class="table__headers_date" id="thursday-pc">04</div>
+                <div class="table__headers_date" id="friday-pc">05</div>
+                <div class="table__headers_date" id="saturday-pc">06</div>
+                <div class="table__headers_date" id="sunday-pc">07</div>
+                <div class="table__content_time_pc" id="content-time-pc"></div>
+                <div class="table__content_day_pc" id="content-monday-pc"></div>
+                <div class="table__content_day_pc" id="content-tuesday-pc"></div>
+                <div class="table__content_day_pc" id="content-wednesday-pc"></div>
+                <div class="table__content_day_pc" id="content-thursday-pc"></div>
+                <div class="table__content_day_pc" id="content-friday-pc"></div>
+                <div class="table__content_day_pc" id="content-saturday-pc"></div>
+                <div class="table__content_day_pc" id="content-sunday-pc"></div>
+            </div>
+            <div class="table_mb">
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="monday-mb">01</div>
+                <div class="table__headers week-day">Понедельник</div>
+                <div class="table__content_time_mb" id="content-time-mb-1"></div>
+                <div class="table__content_day_mb" id="content-monday-mb"></div>
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="tuesday-mb">02</div>
+                <div class="table__headers week-day">Вторник</div>
+                <div class="table__content_time_mb" id="content-time-mb-2"></div>
+                <div class="table__content_day_mb" id="content-tuesday-mb"></div>
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="wednesday-mb">03</div>
+                <div class="table__headers week-day">Среда</div>
+                <div class="table__content_time_mb" id="content-time-mb-3"></div>
+                <div class="table__content_day_mb" id="content-wednesday-mb"></div>
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="thursday-mb">04</div>
+                <div class="table__headers week-day">Четверг</div>
+                <div class="table__content_time_mb" id="content-time-mb-4"></div>
+                <div class="table__content_day_mb" id="content-thursday-mb"></div>
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="friday-mb">05</div>
+                <div class="table__headers week-day">Пятница</div>
+                <div class="table__content_time_mb" id="content-time-mb-5"></div>
+                <div class="table__content_day_mb" id="content-friday-mb"></div>
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="saturday-mb">06</div>
+                <div class="table__headers week-day">Суббота</div>
+                <div class="table__content_time_mb" id="content-time-mb-6"></div>
+                <div class="table__content_day_mb" id="content-saturday-mb"></div>
+                <div class="table__headers">№</div>
+                <div class="table__headers_date" id="sunday-mb">07</div>
+                <div class="table__headers week-day">Воскресенье</div>
+
+                <div class="table__content_time_mb" id="content-time-mb-7"></div>
+                <div class="table__content_day_mb" id="content-sunday-mb"></div>
+            </div>
+        </main>
+        <footer>
+            <a class="author" href="https://www.instagram.com/thebarbakov/">Yaroslav Barbakov 2022</a>
+        </footer>
+        <div class="popup">
+            <div class="popup__container">
+                <button class="popup__close"></button>
+                <div class="popup__title" id="popup-title"></div>
+                <div class="popup__time" id="popup-time"></div>
+                <div class="popup__group">
+                    <div class="popup__fiels">
+                        <div class="popup__name">Тип занятия</div>
+                        <div class="popup__data" id="popup-type"></div>
+                    </div>
+                    <div class="popup__fiels">
+                        <div class="popup__name">Аудитория</div>
+                        <div class="popup__data" id="popup-room"></div>
+                    </div>
+                </div>
+                <div class="popup__fiels popup__teacher">
+                    <div class="popup__name">Преподователь</div>
+                    <div class="popup__data" id="popup-teacher"></div>
+                </div>
+            </div>
+            <div class="popup__overlay"></div>
+        </div>
+        <template class="template_lesson">
+            <div class="lesson">
+                <a class="lesson__title"></a>
+                <div class="lesson__des">
+                    <p class="lesson__type"></p>
+                    <p class="lesson__room"></p>
+                </div>
+                <p class="lesson__teacher"></p>
+            </div>
+        </template>
+        <template class="template_time">
+            <div class="time">
+                <p class="time__number"></p>
+                <p class="time__period"></p>
+            </div>
+        </template>
+        <script src="./db/db.js"></script>
+        <script src="./scripts/popup.js"></script>
+        <script src="./scripts/index.js"></script>
+        <script src="./scripts/buttons.js"></script>
+    </body>
+</html>
