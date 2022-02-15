@@ -5,9 +5,9 @@
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-    -webkit-font-smoothing: antialiased;
+    /* -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility; */
     background-color: #FFF;
     font-family: 'Museo', 'Helvetica', sans-serif;
     color: #4d4d4f;
