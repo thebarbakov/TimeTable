@@ -7,6 +7,13 @@ const popupTeacher = popup.querySelector('#popup-teacher')
 const popupButtonClose = popup.querySelector('.popup__close')
 const popupOverlay = popup.querySelector('.popup__overlay')
 
+const scrollToTop = () => window.scrollTo(scrollX, 0, );
+
+function blockScrolling(){
+    scrollToTop();
+    window.addEventListener('scroll', scrollToTop);
+};
+
 function openPopup(title, type, room, teacher, num){
     popupTitle.textContent = title
     popupTime.textContent = timeTable[num-1].timePeriod
@@ -17,9 +24,11 @@ function openPopup(title, type, room, teacher, num){
     popupOverlay.addEventListener('click', evt => popupClose())
     popup.classList.add('animation__open')
     popup.classList.add('popup_active')
+    blockScrolling();
 }
 
 function popupClose() {
+    window.removeEventListener('scroll', scrollToTop);
     popup.classList.remove('animation__open');
     popup.classList.add('animation__close');
     function removeClasses() {
