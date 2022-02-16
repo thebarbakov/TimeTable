@@ -268,7 +268,6 @@ function fillWeekLessons() {
         })
         if (weekDaysContainerPc[i].querySelectorAll('.lesson').length == 1) {
                 weekTimeContainerMb[i].innerHTML = '';
-                weekDaysContainerMb[i].classList.add('table__content_day_mb_wide');
         }
     }
 }
