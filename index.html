@@ -133,6 +133,30 @@
                 <p class="time__period"></p>
             </div>
         </template>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyCkjITepaMKl75VXZ0cvepppW-_muy05uE",
+              authDomain: "timetablemgpu.firebaseapp.com",
+              databaseURL: "https://timetablemgpu-default-rtdb.firebaseio.com",
+              projectId: "timetablemgpu",
+              storageBucket: "timetablemgpu.appspot.com",
+              messagingSenderId: "625745953594",
+              appId: "1:625745953594:web:a83f647d83a86d42f30603",
+              measurementId: "G-VHP7VC0TBJ"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+        </script>
         <script src="./db/db.js"></script>
         <script src="./scripts/popup.js"></script>
         <script src="./scripts/index.js"></script>
