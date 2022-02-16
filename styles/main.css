@@ -103,6 +103,7 @@
     justify-content: center;
     padding: 0 8px;
     border-radius: 10px;
+    position: relative;
 }
 
 .lesson_empty{
@@ -179,6 +180,39 @@
     height: 90%;
     row-gap: 20px;
     font-size: 14px;
+}
+.lesson__ticket {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    opacity: .8;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.lesson__ticket_bp{
+    color: #ee3524;
+}
+
+.lesson__ticket_sp{
+    color: #ee3524;
+}
+
+.lesson__ticket-des{
+    position: absolute;
+    top: -25px;
+    right: 6px;
+    display: none;
+    border: #4d4d4f 2px solid;
+    font-size: 10px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 2px 5px 2px;
+}
+
+.lesson__ticket-des_active{
+    display: flex;
 }
 
 

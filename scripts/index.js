@@ -121,15 +121,36 @@ function fillCallendar(day) {
 } 
 }
 
-function createLessonCard(title, type, room, teacher, num) {
+function createLessonCard(title, type, room, teacher, num, date) {
     const newLessonCard = lessonTemplate.querySelector('.lesson').cloneNode(true);
     newLessonCard.querySelector('.lesson__title').textContent = title;
     newLessonCard.querySelector('.lesson__type').textContent = type;
     newLessonCard.querySelector('.lesson__room').textContent = room;
     newLessonCard.querySelector('.lesson__teacher').textContent = teacher;
+    if (date !== undefined) {
+        newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_bp');
+        newLessonCard.querySelector('.lesson__ticket').textContent = "БП" 
+        newLessonCard.querySelector('.lesson__ticket-des').textContent = "Занятие только в этот день" 
+    } else if (date === undefined) {
+        newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_p');
+        newLessonCard.querySelector('.lesson__ticket').textContent = "Р" 
+        newLessonCard.querySelector('.lesson__ticket-des').textContent = "Занятие по обычному расписанию" 
+    } else if (room === undefined) {
+        newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_sp');
+        newLessonCard.querySelector('.lesson__ticket').textContent = "СС" 
+        newLessonCard.querySelector('.lesson__ticket-des').textContent = "Специальное" 
+    }
     if (newLessonCard.querySelector('.lesson__title').textContent === '') {
         newLessonCard.classList.add('lesson_empty');
+        newLessonCard.querySelector('.lesson__ticket').textContent = "" 
+        newLessonCard.querySelector('.lesson__ticket-des').textContent = "" 
     }
+    newLessonCard.querySelector('.lesson__ticket').addEventListener('mouseenter', event => {
+        newLessonCard.querySelector('.lesson__ticket-des').classList.add('lesson__ticket-des_active')
+    })
+    newLessonCard.querySelector('.lesson__ticket').addEventListener('mouseleave', event => {
+        newLessonCard.querySelector('.lesson__ticket-des').classList.remove('lesson__ticket-des_active')
+    })
     newLessonCard.querySelector('.lesson__title').addEventListener('click', evt => 
     openPopup(title, type, room, teacher, num))
     return newLessonCard; 
@@ -178,6 +199,7 @@ function fillContentDay(lessonsArray, day) {
             }
             }
         } else {
+            console.log(specialLesson);
             dayContainer.push(specialLesson)
         }
         }} else { dayContainer.push({
@@ -226,12 +248,12 @@ function fillWeekLessons() {
     for (i = 0; i < 7; i++){
         fillContentDay(weekLessons[isWeekUnderLine()].schedule[i], weekDaysFromCalendarPc[i].textContent).forEach(value =>{
             weekDaysContainerPc[i].append(
-                createLessonCard(value.title, value.type, value.room, value.teacher, value.num)
+                createLessonCard(value.title, value.type, value.room, value.teacher, value.num, value.date)
             );
         })
         fillContentDay(weekLessons[isWeekUnderLine()].schedule[i], weekDaysFromCalendarMb[i].textContent).forEach(value =>{
             weekDaysContainerMb[i].append(
-                createLessonCard(value.title, value.type, value.room, value.teacher, value.num)
+                createLessonCard(value.title, value.type, value.room, value.teacher, value.num, value.date)
             );
         })
     }
