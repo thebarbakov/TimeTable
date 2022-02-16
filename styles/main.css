@@ -154,9 +154,9 @@
 .table_mb{
     display: none;
     margin: 20px 10px 0 10px;
-    grid-template: 50px 350px / 15vw 15vw 70vw ;
+    grid-template: 50px auto / 15vw 15vw 70vw ;
     grid-auto-flow: row;
-    grid-auto-rows: 60px 350px;
+    grid-auto-rows: 60px auto;
     justify-items: center;
     align-items: end;
     column-gap: 7px;
@@ -241,11 +241,14 @@
     }
     .lesson {
         min-width: 90%;
-        min-height: 100%;
+        min-height: 60px;
         max-width: 90%;
-        max-height: 100%;
         padding: 0 8px;
         border-radius: 10px;
+    }
+
+    .lesson:last-child {
+        margin-bottom: 20px;
     }
     
     .lesson__title {

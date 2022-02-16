@@ -131,15 +131,16 @@ function createLessonCard(title, type, room, teacher, num, date) {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_bp');
         newLessonCard.querySelector('.lesson__ticket').textContent = "БП" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "Занятие только в этот день" 
-    } else if (date === undefined) {
+    } else if (room.length == 0) {
+        newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_sp');
+        newLessonCard.querySelector('.lesson__ticket').textContent = "СС" 
+        newLessonCard.querySelector('.lesson__ticket-des').textContent = "Специальное"
+    }
+    else if (date === undefined) {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_p');
         newLessonCard.querySelector('.lesson__ticket').textContent = "Р" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "Занятие по обычному расписанию" 
-    } else if (room === '') {
-        newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_sp');
-        newLessonCard.querySelector('.lesson__ticket').textContent = "СС" 
-        newLessonCard.querySelector('.lesson__ticket-des').textContent = "Специальное" 
-    }
+    } 
     if (newLessonCard.querySelector('.lesson__title').textContent === '') {
         newLessonCard.classList.add('lesson_empty');
         newLessonCard.querySelector('.lesson__ticket').textContent = "" 
@@ -207,7 +208,6 @@ function fillContentDay(lessonsArray, day) {
             }
             }
         } else {
-            console.log(specialLesson);
             dayContainer.push(specialLesson)
         }
         }} else { dayContainer.push({
@@ -254,6 +254,8 @@ function fillTimeShedule() {
 
 function fillWeekLessons() {
     for (i = 0; i < 7; i++){
+        const day = new Date(`${weekDaysFromCalendarMb[i].textContent.split('.')[1]}/${weekDaysFromCalendarMb[i].textContent.split('.')[0]}/${today.getFullYear()}`)
+        const weekNum = day.getDay();
         fillContentDay(weekLessons[isWeekUnderLine()].schedule[i], weekDaysFromCalendarPc[i].textContent).forEach(value =>{
             weekDaysContainerPc[i].append(
                 createLessonCard(value.title, value.type, value.room, value.teacher, value.num, value.date)
@@ -264,6 +266,10 @@ function fillWeekLessons() {
                 createLessonCard(value.title, value.type, value.room, value.teacher, value.num, value.date)
             );
         })
+        if (weekDaysContainerPc[i].querySelectorAll('.lesson').length == 1) {
+                weekTimeContainerMb[i].innerHTML = '';
+                weekDaysContainerMb[i].classList.add('table__content_day_mb_wide');
+        }
     }
 }
 
