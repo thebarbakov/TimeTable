@@ -135,7 +135,7 @@ function createLessonCard(title, type, room, teacher, num, date) {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_p');
         newLessonCard.querySelector('.lesson__ticket').textContent = "Р" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "Занятие по обычному расписанию" 
-    } else if (room === undefined) {
+    } else if (room === '') {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_sp');
         newLessonCard.querySelector('.lesson__ticket').textContent = "СС" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "Специальное" 
