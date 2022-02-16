@@ -151,10 +151,10 @@ function createLessonCard(title, type, room, teacher, num, date) {
     newLessonCard.querySelector('.lesson__ticket').addEventListener('mouseleave', event => {
         newLessonCard.querySelector('.lesson__ticket-des').classList.remove('lesson__ticket-des_active')
     })
-    newLessonCard.querySelector('.lesson__ticket').addEventListener('handleStart', event => {
+    newLessonCard.querySelector('.lesson__ticket').addEventListener('touchstart', event => {
         newLessonCard.querySelector('.lesson__ticket-des').classList.add('lesson__ticket-des_active')
     })
-    newLessonCard.querySelector('.lesson__ticket').addEventListener('handleEnd', event => {
+    newLessonCard.querySelector('.lesson__ticket').addEventListener('touchend', event => {
         setTimeout(timeHandlerTickets, 2000)
         const timeHandlerTickets = () => newLessonCard.querySelector('.lesson__ticket-des').classList.remove
         ('lesson__ticket-des_active')
