@@ -45,6 +45,7 @@ function popupClose() {
     window.removeEventListener('scroll', scrollToTop);
     popup.classList.remove('animation__open');
     popup.classList.add('animation__close');
+    popupMessage.classList.remove('popup__message_red');
     function removeClasses() {
         popup.classList.remove('popup_active');
         popup.classList.remove('animation__close');
