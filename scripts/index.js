@@ -122,6 +122,7 @@ function fillCallendar(day) {
 }
 
 function createLessonCard(title, type, room, teacher, num, date) {
+    let messageType;
     const newLessonCard = lessonTemplate.querySelector('.lesson').cloneNode(true);
     newLessonCard.querySelector('.lesson__title').textContent = title;
     newLessonCard.querySelector('.lesson__type').textContent = type;
@@ -131,15 +132,18 @@ function createLessonCard(title, type, room, teacher, num, date) {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_bp');
         newLessonCard.querySelector('.lesson__ticket').textContent = "БП" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "Занятие только в этот день" 
+        messageType = '2';
     } else if (room.length == 0) {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_sp');
         newLessonCard.querySelector('.lesson__ticket').textContent = "СС" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "Специальное"
+        messageType = '3';
     }
     else if (date === undefined) {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_p');
         newLessonCard.querySelector('.lesson__ticket').textContent = "Р" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "Занятие по обычному расписанию" 
+        messageType = '1';
     } 
     if (newLessonCard.querySelector('.lesson__title').textContent === '') {
         newLessonCard.classList.add('lesson_empty');
@@ -161,7 +165,7 @@ function createLessonCard(title, type, room, teacher, num, date) {
         setTimeout(timeHandlerTickets, 2000);
     })
     newLessonCard.querySelector('.lesson__title').addEventListener('click', evt => 
-    openPopup(title, type, room, teacher, num))
+    openPopup(title, type, room, teacher, num, messageType))
     return newLessonCard; 
 }
 
