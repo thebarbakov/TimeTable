@@ -42,6 +42,7 @@ function openPopup(title, type, room, teacher, num, messageType){
 }
 
 function popupClose() {
+    popupMessage.classList.remove('popup__message_red')
     window.removeEventListener('scroll', scrollToTop);
     popup.classList.remove('animation__open');
     popup.classList.add('animation__close');
