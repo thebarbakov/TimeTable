@@ -246,12 +246,13 @@ function isWeekUnderLine() {
 
 function completeWeek(today) {
     const todayCom = new Date();
+    const test = new Date('02/18/2022 12:50');
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
     setWeekName();
     if(`${today.getMonth()}/${today.getDate()}/${today.getFullYear()}` == `${todayCom.getMonth()}/${todayCom.getDate()}/${todayCom.getFullYear()}`) {
-        setColorNow(todayCom)
+        setColorNow(test)
     }
 }
 function fillTimeShedule() {
