@@ -36,13 +36,12 @@
     display: none;
     margin: 20px auto 0 auto;
     max-width: 90%;
-    grid-template: 5% 5% 80%/ 5% repeat(6, 1fr) 10%;
+    grid-template: 5% 7% 80%/ 5% repeat(6, 1fr) 10%;
     min-height: 75vh;
     max-height: 75vh;
     justify-items: center;
     align-items: end;
     column-gap: 15px;
-    justify-items: center;
 }
 .table__headers {
     display: flex;
@@ -58,7 +57,7 @@
     text-align: center;
     font-size: 18px;
     height: auto;
-    width: 100%;
+    width: auto;
     justify-content: center;
     font-weight: bold;
     color: #ee3524;
@@ -70,6 +69,7 @@
     grid-template-rows: repeat(4, 1fr);
     row-gap: 15px;
     padding-top: 20px;
+    justify-content: center;
 }
 
 .table__content_day_pc {
@@ -80,6 +80,7 @@
     row-gap: 10px;
     padding-top: 20px;
     min-width: 90%;
+    justify-content: center;
 
 }
 
@@ -120,6 +121,7 @@
     text-overflow: ellipsis;
     cursor: pointer;
     text-shadow: 1px 1px 7px #4d4d4f38;
+    display: flex;
 }
 
 .lesson__type {
@@ -171,6 +173,7 @@
     height: 90%;
     row-gap: 20px;
     width: 80%;
+    justify-content: center;
 }
 
 .table__content_time_mb {
@@ -180,6 +183,7 @@
     height: 90%;
     row-gap: 20px;
     font-size: 14px;
+    justify-content: center;
 }
 .lesson__ticket {
     position: absolute;
@@ -209,10 +213,6 @@
     border-radius: 5px;
     text-align: center;
     padding: 5px 2px 5px 2px;
-}
-
-.lesson__ticket-des_active{
-    display: flex;
 }
 
 
@@ -283,5 +283,57 @@
         font-weight: 300;
         content: 'дата';
     }
+    .clock__img {
+        height: 25px;
+        width: 25px;
+        top: calc(50% - 12.5px);
+        left: 8px;
+    }
 }
 
+.lesson_active {
+    border: 3px solid #ee3524;
+    position: relative;
+}
+
+.time_active {
+    color: #ee3524;
+    font-weight: bold;
+}
+
+.clock__img {
+    position: absolute;
+    display: flex;
+    height: 18px;
+    width: 18px;
+    top: 20px;
+    left: 8px;
+    background-image: url('../images/time.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.clock__text {
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    width: 110px;
+    display: none;
+    border: #4d4d4f 2px solid;
+    font-size: 10px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 2px 5px 2px;
+}
+
+.table__headers_today{
+    color: #ee3524;
+    font-weight: bold;
+    border-bottom: #ee3524 7px solid;
+}
+
+.lesson__ticket-des_active{
+    display: flex;
+}

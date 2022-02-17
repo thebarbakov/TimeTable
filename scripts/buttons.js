@@ -62,4 +62,10 @@ function clearDatas(){
         value.innerHTML = ''})
     weekDaysContainerMb.forEach(value =>{
         value.innerHTML = ''})
+    weekDaysFromCalendarPc.forEach(value => {
+        value.classList.remove('table__headers_today')
+    })
+    weekDaysFromCalendarMb.forEach(value => {
+        value.classList.remove('table__headers_today')
+    })
 }

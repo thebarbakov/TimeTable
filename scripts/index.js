@@ -1,4 +1,5 @@
 const lessonTemplate = document.querySelector('.template_lesson').content;
+const clockTemplate = document.querySelector('.template_clock').content;
 const timeTemplate = document.querySelector('.template_time').content;
 const today = new Date();
 const weekDaysFromCalendarPc = [document.querySelector('#monday-pc'), document.querySelector('#tuesday-pc'), 
@@ -241,10 +242,14 @@ function isWeekUnderLine() {
 }
 
 function completeWeek(today) {
+    const todayCom = new Date();
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
     setWeekName();
+    if(`${today.getMonth()}/${today.getDate()}/${today.getFullYear()}` == `${todayCom.getMonth()}/${todayCom.getDate()}/${todayCom.getFullYear()}`) {
+        setColorNow(todayCom)
+    }
 }
 function fillTimeShedule() {
     for (i = 0; i < timeTable.length; i++) {
@@ -279,5 +284,95 @@ function fillWeekLessons() {
 function setWeekName() {
     weekName.textContent = weekLessons[isWeekUnderLine()].title
 }
-completeWeek(today)
+
+function setColorNow(todayCom){
+    const weekDayNum = todayCom.getDay();
+    function setColor(weekday,lessonNum) {
+        if (!weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].classList.contains('lesson_empty')) {
+            weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum].classList.add('lesson_active')
+            weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].classList.add('lesson_active')
+            const newClock = clockTemplate.querySelector('.clock__img').cloneNode(true);
+            newClock.addEventListener('mouseenter', event => {
+                newClock.querySelector('.clock__text').classList.add('lesson__ticket-des_active')
+            })
+            newClock.addEventListener('mouseleave', event => {
+                newClock.querySelector('.clock__text').classList.remove('lesson__ticket-des_active')
+            })
+            newClock.addEventListener('touchstart', event => {
+                newClock.querySelector('.clock__text').classList.add('lesson__ticket-des_active')
+            })
+            newClock.addEventListener('touchend', event => {
+                const timeHandlerTickets = () => newClock.querySelector('.clock__text').classList.remove
+                ('lesson__ticket-des_active');
+                setTimeout(timeHandlerTickets, 2000);
+            })
+            const newClockMb = newClock.cloneNode(true)
+            newClockMb.addEventListener('mouseenter', event => {
+                newClockMb.querySelector('.clock__text').classList.add('lesson__ticket-des_active')
+            })
+            newClockMb.addEventListener('mouseleave', event => {
+                newClockMb.querySelector('.clock__text').classList.remove('lesson__ticket-des_active')
+            })
+            newClockMb.addEventListener('touchstart', event => {
+                newClockMb.querySelector('.clock__text').classList.add('lesson__ticket-des_active')
+            })
+            newClockMb.addEventListener('touchend', event => {
+                const timeHandlerTickets = () => newClockMb.querySelector('.clock__text').classList.remove
+                ('lesson__ticket-des_active');
+                setTimeout(timeHandlerTickets, 2000);
+            })
+            weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum].append(newClock);
+            weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].append(newClockMb);
+        } 
+        weekTimeContainerPc.querySelectorAll('.time')[lessonNum].classList.add('time_active')
+        weekTimeContainerMb[weekday].querySelectorAll('.time')[lessonNum].classList.add('time_active')
+    }
+    const timePeridoFromOne = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[0].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[0].timePeriod.split(' - ')[0].split(':')[1]}`)
+    timePeridoFromOne.setMinutes(timePeridoFromOne.getMinutes() - 10)
+    const timePeridoToOne = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[0].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[0].timePeriod.split(' - ')[1].split(':')[1]}`)
+    timePeridoToOne.setMinutes(timePeridoToOne.getMinutes() + 4)
+    const timePeridoFromTwo = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[1].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[1].timePeriod.split(' - ')[0].split(':')[1]}`)
+    timePeridoFromTwo.setMinutes(timePeridoFromTwo.getMinutes() - 4)
+    const timePeridoToTwo = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[1].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[1].timePeriod.split(' - ')[1].split(':')[1]}`)
+    timePeridoToTwo.setMinutes(timePeridoToTwo.getMinutes() + 5)
+    const timePeridoFromThree = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[2].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[2].timePeriod.split(' - ')[0].split(':')[1]}`)
+    timePeridoFromThree.setMinutes(timePeridoFromThree.getMinutes() - 10)
+    const timePeridoToThree = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[2].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[2].timePeriod.split(' - ')[1].split(':')[1]}`)
+    timePeridoToThree.setMinutes(timePeridoToThree.getMinutes() + 4)
+    const timePeridoFromFour =new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[3].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[3].timePeriod.split(' - ')[0].split(':')[1]}`)
+    timePeridoFromFour.setMinutes(timePeridoFromFour.getMinutes() - 4)
+    const timePeridoToFour = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[3].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[3].timePeriod.split(' - ')[1].split(':')[1]}`)
+    timePeridoToFour.setMinutes(timePeridoToFour.getMinutes() + 5)
+
+    function compareTime() {
+        if (todayCom >= timePeridoFromOne && todayCom <= timePeridoToOne) {
+            return 0;
+        } else if (todayCom >= timePeridoFromTwo && todayCom <= timePeridoToTwo) {
+            return 1;
+        } else if (todayCom >= timePeridoFromThree && todayCom <= timePeridoToThree) {
+            return 2;
+        } else if (todayCom >= timePeridoFromFour && todayCom <= timePeridoToFour) {
+            return 3;
+        }
+    }
+    if (compareTime() !== undefined) {
+        if (weekDayNum === 0) {
+            setColor(6, compareTime())
+            weekDaysFromCalendarPc[6].classList.add('table__headers_today')
+            weekDaysFromCalendarMb[6].classList.add('table__headers_today')
+        } else {
+            setColor(weekDayNum-1, compareTime())
+            weekDaysFromCalendarPc[weekDayNum-1].classList.add('table__headers_today')
+            weekDaysFromCalendarMb[weekDayNum-1].classList.add('table__headers_today')
+        } } else { if (weekDayNum === 0) {
+                weekDaysFromCalendarPc[6].classList.add('table__headers_today')
+                weekDaysFromCalendarMb[6].classList.add('table__headers_today')
+                } else {
+                weekDaysFromCalendarPc[weekDayNum-1].classList.add('table__headers_today')
+                weekDaysFromCalendarMb[weekDayNum-1].classList.add('table__headers_today')
+                } 
+                }
+            }
+
+completeWeek(today);
 
