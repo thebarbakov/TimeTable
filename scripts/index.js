@@ -128,7 +128,7 @@ function createLessonCard(title, type, room, teacher, num, date) {
     newLessonCard.querySelector('.lesson__title').textContent = title;
     newLessonCard.querySelector('.lesson__type').textContent = type;
     newLessonCard.querySelector('.lesson__room').textContent = room;
-    newLessonCard.querySelector('.lesson__teacher').textContent = teacher;
+    newLessonCard.querySelector('.lesson__teacher').textContent = teacher == '' ? '' : `${teacher.split(' ')[0]} ${teacher.split(' ')[1].substr(0,1)}. ${teacher.split(' ')[2].substr(0,1)}.`;
     if (date !== undefined) {
         newLessonCard.querySelector('.lesson__ticket').classList.add('lesson__ticket_bp');
         newLessonCard.querySelector('.lesson__ticket').textContent = "БП" 

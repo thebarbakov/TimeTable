@@ -40,7 +40,7 @@ const weekLessons = [
             title: 'Великие книги',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Черезов А.Е.',
+            teacher: 'Черезов Александр Евгеньевич',
             until: '21.6'
             },
             {
@@ -48,7 +48,7 @@ const weekLessons = [
             title: 'Основы проектирования и технологии презентации',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Алиева З.К.',
+            teacher: 'Алиева Зайнаб Кадиевна',
             until: '21.6'
             },
             {
@@ -56,7 +56,7 @@ const weekLessons = [
             title: 'Социальная психология',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Васильева Т.В.',
+            teacher: 'Васильева Татьяна Витальевна',
             until: '21.6'
             },
             {
@@ -64,7 +64,7 @@ const weekLessons = [
             title: 'Социальная психология',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Васильева Т.В.',
+            teacher: 'Васильева Татьяна Витальевна',
             until: '21.6'
             }
             ],[ //wednesday
@@ -73,7 +73,7 @@ const weekLessons = [
             title: 'Английский язык',
             room: 'Teams',
             type: 'Практика',
-            teacher: 'Белышева М.Д.',
+            teacher: 'Белышева Маргарита Дмитриевна',
             until: '25.5'
             },
             {
@@ -81,7 +81,7 @@ const weekLessons = [
             title: 'Философия',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Черезов А.Е.',
+            teacher: 'Черезов Александр Евгеньевич',
             until: '25.5'
             },
             {
@@ -89,7 +89,7 @@ const weekLessons = [
             title: 'Информационные технологии в социальной сфере',
             room: 'Teams',
             type: 'Лабораторная',
-            teacher: 'Иванцов О.В.',
+            teacher: 'Иванцов Олег Владимирович',
             until: '8.6'
             },
             {
@@ -97,7 +97,7 @@ const weekLessons = [
             title: 'Информационные технологии в социальной сфере',
             room: 'Teams',
             type: 'Лабораторная',
-            teacher: 'Иванцов О.В.',
+            teacher: 'Иванцов Олег Владимирович',
             until: '8.6'
             }
         ],[ //thursday
@@ -114,7 +114,7 @@ const weekLessons = [
             title: 'Педагогическое обеспечение работы с молодежью',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Зотова М.В.',
+            teacher: 'Зотова Марина Викторовна',
             until: '9.6'
             },
             {
@@ -122,7 +122,7 @@ const weekLessons = [
             title: 'Педагогическое обеспечение работы с молодежью',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Зотова М.В.',
+            teacher: 'Зотова Марина Викторовна',
             until: '9.6'
             },
             {
@@ -130,7 +130,7 @@ const weekLessons = [
             title: 'Педагогическое обеспечение работы с молодежью',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Зотова М.В.',
+            teacher: 'Зотова Марина Викторовна',
             until: '9.6'
             }
         ],[//friday
@@ -155,7 +155,7 @@ const weekLessons = [
             title: 'Основы экономики',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Королева Л.В.',
+            teacher: 'Королева Лариса Владимировна',
             until: '10.6'
             },
             {
@@ -163,7 +163,7 @@ const weekLessons = [
             title: 'Основы экономики',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Королева Л.В.',
+            teacher: 'Королева Лариса Владимировна',
             until: '10.6'
             }
         ],[//saturday
@@ -243,7 +243,7 @@ const weekLessons = [
             title: 'Безопасность жизнедеятельности',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Красильников А.А.',
+            teacher: 'Красильников Арсентий Александрович',
             until: '14.6'
             },
             {
@@ -251,7 +251,7 @@ const weekLessons = [
             title: 'Безопасность жизнедеятельности',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Красильников А.А.',
+            teacher: 'Красильников Арсентий Александрович',
             until: '14.6'
             },
             {
@@ -259,7 +259,7 @@ const weekLessons = [
             title: 'Социальная психология',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Васильева Т.В.',
+            teacher: 'Васильева Татьяна Витальевна',
             until: '21.6'
             },
             {
@@ -267,7 +267,7 @@ const weekLessons = [
             title: 'Социальная психология',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Васильева Т.В.',
+            teacher: 'Васильева Татьяна Витальевна',
             until: '21.6'
             }
         ],[ //wednesday
@@ -276,7 +276,7 @@ const weekLessons = [
             title: 'Английский язык',
             room: 'Teams',
             type: 'Практика',
-            teacher: 'Белышева М.Д.',
+            teacher: 'Белышева Маргарита Дмитриевна',
             until: '25.5'
             },
             {
@@ -284,7 +284,7 @@ const weekLessons = [
             title: 'Информационные технологии в социальной сфере',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Иванцов О.В.',
+            teacher: 'Иванцов Олег Владимирович',
             until: '15.6'
             },
             {
@@ -292,7 +292,7 @@ const weekLessons = [
             title: 'Информационные технологии в социальной сфере',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Иванцов О.В.',
+            teacher: 'Иванцов Олег Владимирович',
             until: '8.6'
             },{
             num: '4',
@@ -316,7 +316,7 @@ const weekLessons = [
             title: 'Педагогическое обеспечение работы с молодежью',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Зотова М.В.',
+            teacher: 'Зотова Марина Викторовна',
             until: '9.6'
             },
             {
@@ -324,7 +324,7 @@ const weekLessons = [
             title: 'Педагогическое обеспечение работы с молодежью',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Зотова М.В.',
+            teacher: 'Зотова Марина Викторовна',
             until: '9.6'
             },
             {
@@ -357,7 +357,7 @@ const weekLessons = [
             title: 'Основы экономики',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Королева Л.В.',
+            teacher: 'Королева Лариса Владимировна',
             until: '10.6'
             },
             {
@@ -365,7 +365,7 @@ const weekLessons = [
             title: 'Основы экономики',
             room: 'Teams',
             type: 'Семинар',
-            teacher: 'Королева Л.В.',
+            teacher: 'Королева Лариса Владимировна',
             until: '10.6'
             }
         ],[//saturday
@@ -390,7 +390,7 @@ const weekLessons = [
             title: 'Философия',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Черезов А.Е.',
+            teacher: 'Черезов Александр Евгеньевич',
             until: '9.4'
             },
             {
@@ -398,7 +398,7 @@ const weekLessons = [
             title: 'Философия',
             room: 'Teams',
             type: 'Лекция',
-            teacher: 'Черезов А.Е.',
+            teacher: 'Черезов Александр Евгеньевич',
             until: '9.4'
             }
         ],[//sunday
@@ -414,7 +414,7 @@ const specialLessons = [{
     title: 'Основы проектирования и технологии презентации',
     room: 'Teams',
     type: 'Лекция',
-    teacher: 'Алиева З.К.',
+    teacher: 'Алиева Зайнаб Кадиевна',
     },
     {
     date: '15.2',
@@ -422,7 +422,7 @@ const specialLessons = [{
     title: 'Великие книги',
     room: 'Teams',
     type: 'Лекция',
-    teacher: 'Черезов А.Е.',
+    teacher: 'Черезов Александр Евгеньевич',
     },
     {
     date: '19.2',
@@ -430,7 +430,7 @@ const specialLessons = [{
     title: 'Социальная психология',
     room: 'Teams',
     type: 'Лекция',
-    teacher: 'Васильева Т.В.',
+    teacher: 'Васильева Татьяна Витальевна',
     },
    {
     date: '19.2',
@@ -438,7 +438,7 @@ const specialLessons = [{
     title: 'Социальная психология',
     room: 'Teams',
     type: 'Семинар',
-    teacher: 'Васильева Т.В.',
+    teacher: 'Васильева Татьяна Витальевна',
     },
     {
     date: '5.3',
@@ -446,7 +446,7 @@ const specialLessons = [{
     title: 'Основы проектирования и технологии презентации',
     room: 'Teams',
     type: 'Лекция',
-    teacher: 'Алиева З.К.'
+    teacher: 'Алиева Зайнаб Кадиевна'
     },
     {
     date: '5.3',
@@ -454,7 +454,7 @@ const specialLessons = [{
     title: 'Основы проектирования и технологии презентации',
     room: 'Teams',
     type: 'Лекция',
-    teacher: 'Алиева З.К.'
+    teacher: 'Алиева Зайнаб Кадиевна'
     }
 ];
 

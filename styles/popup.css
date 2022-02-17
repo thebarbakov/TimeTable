@@ -24,6 +24,7 @@
     flex-direction: column;
     z-index: 10;
     position: relative;
+    padding: 5px 5px 10px 5px;
 
 }
 
@@ -99,6 +100,7 @@
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
+    max-width: 280px;
 }
 
 .popup__overlay{
@@ -119,4 +121,8 @@
 
 .popup__message_red {
     color: #ee3524;
+}
+
+.popup__hided {
+    display: none;
 }
