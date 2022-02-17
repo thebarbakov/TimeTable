@@ -246,7 +246,7 @@ function isWeekUnderLine() {
 
 function completeWeek(today) {
     const todayCom = new Date();
-    const test = new Date('02/18/2022 12:50');
+    const test = new Date('02/17/2022 13:30');
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
