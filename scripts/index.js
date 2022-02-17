@@ -125,7 +125,7 @@ function fillCallendar(day) {
 function createLessonCard(title, type, room, teacher, num, date) {
     let messageType;
     const newLessonCard = lessonTemplate.querySelector('.lesson').cloneNode(true);
-    newLessonCard.querySelector('.lesson__title').textContent = title;
+    newLessonCard.querySelector('.lesson__title').textContent =  newLessonCard.querySelector('.lesson__title').textContent + title;
     newLessonCard.querySelector('.lesson__type').textContent = type;
     newLessonCard.querySelector('.lesson__room').textContent = room;
     newLessonCard.querySelector('.lesson__teacher').textContent = teacher == '' ? '' : `${teacher.split(' ')[0]} ${teacher.split(' ')[1].substr(0,1)}. ${teacher.split(' ')[2].substr(0,1)}.`;
@@ -148,6 +148,7 @@ function createLessonCard(title, type, room, teacher, num, date) {
     } 
     if (newLessonCard.querySelector('.lesson__title').textContent === '') {
         newLessonCard.classList.add('lesson_empty');
+        newLessonCard.querySelector('.lesson__click').classList.add('lesson__click_empty');
         newLessonCard.querySelector('.lesson__ticket').textContent = "" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "" 
     }
@@ -166,6 +167,8 @@ function createLessonCard(title, type, room, teacher, num, date) {
         setTimeout(timeHandlerTickets, 2000);
     })
     newLessonCard.querySelector('.lesson__title').addEventListener('click', evt => 
+    openPopup(title, type, room, teacher, num, messageType))
+    newLessonCard.querySelector('.lesson__click').addEventListener('click', evt => 
     openPopup(title, type, room, teacher, num, messageType))
     return newLessonCard; 
 }

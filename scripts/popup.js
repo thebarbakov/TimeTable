@@ -25,7 +25,7 @@ function openPopup(title, type, room, teacher, num, messageType){
     num == '' ? popup.querySelector('.popup__time').classList.add('popup__hided') : unhide('.popup__time', popupTime, timeTable[num-1].timePeriod)
     type == '' ? popup.querySelector('.popup__type').classList.add('popup__hided') : unhide('.popup__type', popupType, type)
     room == '' ? popup.querySelector('.popup__room').classList.add('popup__hided') : unhide('.popup__room', popupRoom, room)
-    teacher == '' ? popup.querySelector('.popup__teacher').classList.add('popup__hided') : unhide('.popup__teacher', popupTeacher, teacher)
+    teacher == '' ? popup.querySelector('.popup__teache').classList.add('popup__hided') : unhide('.popup__teache', popupTeacher, teacher)
     switch (messageType){
         case ('1'):
             popupMessage.textContent = 'Занятие по обычному расписанию'

@@ -117,20 +117,18 @@
     position: relative;
 }
 
-.lesson_empty{
-    background-color: initial;
-    border: solid 3px #f1f2f2;
-}
-
 .lesson__title {
+    position: relative;
+    left: 3px;
     font-size: 12px;
     font-weight: 900;
     max-height: 30px;
-    max-width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 280px;
     cursor: pointer;
-    display: flex;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .lesson__type {
@@ -197,7 +195,7 @@
 .lesson__ticket {
     position: absolute;
     top: 4px;
-    right: 8px;
+    right: 5px;
     opacity: .8;
     font-size: 12px;
     cursor: pointer;
@@ -298,6 +296,11 @@
         top: calc(50% - 12.5px);
         left: 8px;
     }
+
+    .lesson__click {
+        top: 4px;
+        left: 8px;
+    }
 }
 
 .lesson_active {
@@ -345,4 +348,33 @@
 
 .lesson__ticket-des_active{
     display: flex;
+}
+
+.lesson__click {
+    opacity: .6;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: center;
+    position: relative;
+    left: 5px;
+    cursor: pointer;
+}
+
+.lesson__string {
+    max-height: 30px;
+    max-width: 80%;
+    cursor: pointer;
+    display: flex;
+
+}
+
+.lesson_empty{
+    background-color: initial;
+    border: solid 3px #f1f2f2;
+    
+}
+
+.lesson__click_empty {
+    display: none;
 }
