@@ -483,6 +483,26 @@ const weekends = [{
 }
 ]
 
+const subject =[{
+    name: 'Педагогическое обеспечение работы с молодежью',
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15d8PjKnh4Cdtv31hwk1ZkRNO8reBi9VX'
+},{
+    name: 'Основы экономики',
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F167vfVKA1wdMRtLf1geSkxRC8bw7WWmYq'
+}, {
+    name: 'Основы проектирования и технологии презентации',
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F16eKZ7JqZyeoaR50X9Lya_J06RgeHb_a0'
+},{
+    name: 'Великие книги',
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F16adX5h-dAAou3HSOv5fz8mTKRx-3pDgd'
+},{
+    name: 'Информационные технологии в социальной сфере',
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15VazuwQqstmdQDYj7VwheUCIHUTTD13u'
+},{
+    name: 'Английский язык',
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15UX3DeHFe0b9K1IyxbakeYde8_Uv7gIC'
+}
+]
 // TimeTable
 // {
 //     num: '1',
