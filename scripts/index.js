@@ -176,7 +176,7 @@ function createLessonCard(title, type, room, teacher, num, date) {
 function createTimeCard(number, period) {
     const newTimeCard = timeTemplate.querySelector('.time').cloneNode(true);
     newTimeCard.querySelector('.time__number').textContent = number;
-    newTimeCard.querySelector('.time__period').textContent = period
+    newTimeCard.querySelector('.time__period').textContent = period.replace(' - ', ' -\u00A0')
     return newTimeCard; 
 }
 
@@ -246,13 +246,13 @@ function isWeekUnderLine() {
 
 function completeWeek(today) {
     const todayCom = new Date();
-    const test = new Date('02/18/2022 12:50');
+    //const test = new Date('02/18/2022 12:50');
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
     setWeekName();
     if(`${today.getMonth()}/${today.getDate()}/${today.getFullYear()}` == `${todayCom.getMonth()}/${todayCom.getDate()}/${todayCom.getFullYear()}`) {
-        setColorNow(test)
+        setColorNow(todayCom)
     }
 }
 function fillTimeShedule() {
