@@ -16,6 +16,9 @@
 }
 
 .popup__container{
+    position: fixed;
+    top: 20vh;
+    left: calc(50vw - 150px);
     display: flex;
     width: 300px;
     min-height: 300px;
@@ -24,7 +27,6 @@
     border-radius: 15px;
     flex-direction: column;
     z-index: 150;
-    position: relative;
     padding: 5px 5px 10px 5px;
 
 }

@@ -9,13 +9,6 @@ const popupButtonClose = popup.querySelector('.popup__close')
 const popupOverlay = popup.querySelector('.popup__overlay')
 const popupUrl = popup.querySelector('.popup__url')
 
-const scrollToTop = () => window.scrollTo(scrollX, 0, );
-
-function blockScrolling(){
-    scrollToTop();
-    window.addEventListener('scroll', scrollToTop);
-};
-
 function unhide(object, x, value) {
     x.textContent = value
     popup.querySelector(object).classList.remove('popup__hided')
@@ -50,13 +43,11 @@ function openPopup(title, type, room, teacher, num, messageType){
     popupOverlay.addEventListener('click', evt => popupClose())
     popup.classList.add('animation__open')
     popup.classList.add('popup_active')
-    blockScrolling();
 }
 
 function popupClose() {
     popupMessage.classList.remove('popup__message_red')
     popupUrl.classList.remove('popup__url_disabled')
-    window.removeEventListener('scroll', scrollToTop);
     popup.classList.remove('animation__open');
     popup.classList.add('animation__close');
     function removeClasses() {
@@ -65,3 +56,16 @@ function popupClose() {
     }
     setTimeout(removeClasses, 500)
 }
+
+function setHeight(){
+    let scrollHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );  
+      popup.style.height = scrollHeight + 'px';
+} 
+
+window.addEventListener(`resize`, event => {setHeight();}, false);
+
+setHeight();
