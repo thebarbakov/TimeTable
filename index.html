@@ -117,7 +117,24 @@
             <div class="popup__overlay"></div>
         </div>
         <div class="slider">
-
+            <div class="slider__button"></div>
+            <div class="slider__now" id="slider-now">
+                <div class="slider__string">
+                    <div class="slider__text">Сейчас:&nbsp;</div>
+                    <div class="slider__link" id="slider-now-text"></div>
+                </div>
+                <div class="slider__when" id="slider-now-when"></div>
+            </div>
+            <div class="slider__now" id="slider-after">
+                <div class="slider__string">
+                    <div class="slider__text">Следующий:&nbsp;</div>
+                    <div class="slider__link" id="slider-after-text"></div>
+                </div>
+                <div class="slider__string">
+                    <div class="slider__day" id="slider-after-day"></div>
+                    <div class="slider__when" id="slider-after-when"></div>
+                </div>
+            </div>
         </div>
         <template class="template_lesson">
             <div class="lesson">
@@ -146,5 +163,6 @@
         <script src="./scripts/popup.js"></script>
         <script src="./scripts/index.js"></script>
         <script src="./scripts/buttons.js"></script>
+        <script src="./scripts/slider.js"></script>
     </body>
 </html>

@@ -1,0 +1,163 @@
+.slider {
+    position: fixed;
+    bottom: 0;
+    width: 300px;
+    height: 140px;
+    left: calc(50vw - 150px);
+    display: flex;
+    background-color: #f1f2f2;
+    border-radius: 5px;
+    z-index: 7;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slider__button {
+    position: fixed;
+    width: 80px;
+    height: 40px;
+    bottom: 130px;
+    left: calc(50vw - 40px);
+    background-color: #f1f2f2;
+    z-index: 6;
+    border-radius: 10px;
+    background-image: url(../images/hide.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+}
+
+.slider__now {
+    display: flex;
+    flex-direction: column;
+    border: #4d4d4f solid 1px;
+    border-radius: 5px;
+    margin-top: 10px;
+    
+}
+.slider__now_disable {
+    display: none;
+}
+
+.slider__text {
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.slider__link{
+    cursor: poiner;
+    font-weight: bold;
+    color: #ee3524;
+    max-height: 20px;
+    max-width: 180px;
+    cursor: pointer;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.slider__when{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.slider__when::before{
+    content: 'Время: ';
+    font-weight: 100;
+}
+
+.slider__day{
+    font-weight: 700;
+}
+
+.slider__day::before{
+    content: 'День: ';
+    font-weight: 100;
+}
+
+
+.slider__string{
+    display: flex;
+    flex-direction: row;
+    width: 280px;
+    margin: 5px auto 0 auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slider__down {
+    animation: sliderDown .5s forwards;
+}
+
+.slider__button_down {
+    animation: buttonDown .5s forwards;
+}
+
+.slider__up {
+    animation: sliderUp .5s forwards;
+}
+
+.slider__button_up {
+    animation: buttonUp .5s forwards;
+}
+
+@media screen and (max-width: 960px){
+    .slider{
+        bottom: 0;
+        width: 100vw;
+        height: 140px;
+        left: 0;
+    }
+
+    .slider__string {
+        width: calc(100vw -30px);
+    }
+}
+@keyframes sliderDown {
+    from {
+        bottom: 0
+    }
+
+    to {
+        bottom: -140px
+    }
+} 
+
+@keyframes buttonDown {
+    from {
+        bottom: 130;
+        background-image: url(../images/hide.png);
+    }
+
+    to {
+        bottom: 30px;
+        background-image: url(../images/unhide.png);
+    }
+} 
+
+@keyframes sliderUp {
+    from {
+        bottom: -140px
+    }
+
+    to {
+        bottom: 0px
+    }
+} 
+
+@keyframes buttonUp {
+    from {
+        bottom: 30;
+        background-image: url(../images/unhide.png);
+    }
+
+    to {
+        bottom: 130px;
+        background-image: url(../images/hide.png);
+    }
+} 

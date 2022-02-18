@@ -1,8 +1,8 @@
 const lessonTemplate = document.querySelector('.template_lesson').content;
 const clockTemplate = document.querySelector('.template_clock').content;
 const timeTemplate = document.querySelector('.template_time').content;
-//const today = new Date('02/28/2022 18:38');
-const today = new Date();
+const today = new Date('02/18/2022 13:50');
+console.log(today);
 const weekDaysFromCalendarPc = [document.querySelector('#monday-pc'), document.querySelector('#tuesday-pc'), 
 document.querySelector('#wednesday-pc'), document.querySelector('#thursday-pc'), document.querySelector('#friday-pc'),
 document.querySelector('#saturday-pc'), document.querySelector('#sunday-pc')];
@@ -18,7 +18,8 @@ const weekTimeContainerMb = [document.querySelector('#content-time-mb-1'), docum
 document.querySelector('#content-time-mb-4'), document.querySelector('#content-time-mb-5'), document.querySelector('#content-time-mb-6'), document.querySelector('#content-time-mb-7')];
 const weekName = document.querySelector('.week__name_bold');
 let lessonNow = {dom: '', num: ''};
-let nextLesson = {dom: '', num: '', day: '', obj: {title: ''}};
+let nextLesson = {dom: '', num: '', day: ''};
+
 
 
 function fillCallendar(day) {
@@ -150,7 +151,6 @@ function createLessonCard(title, type, room, teacher, num, date) {
     } 
     if (newLessonCard.querySelector('.lesson__title').textContent === '') {
         newLessonCard.classList.add('lesson_empty');
-        newLessonCard.querySelector('.lesson__ticket').classList.remove('lesson__ticket_sp');
         newLessonCard.querySelector('.lesson__click').classList.add('lesson__click_empty');
         newLessonCard.querySelector('.lesson__ticket').textContent = "" 
         newLessonCard.querySelector('.lesson__ticket-des').textContent = "" 
@@ -183,14 +183,8 @@ function createTimeCard(number, period) {
     return newTimeCard; 
 }
 
-function fillContentDay(lessonsArray, day, dayZ) {
-    let date;
-    if (day == 0) {
-        date = new Date(dayZ);
-        day = `${date.getDate()}.${date.getMonth()+1}`
-    } else {
-        date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
-    }
+function fillContentDay(lessonsArray, day) {
+    const date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
     const dayContainer = [];
     const weekendsDay = weekends.find(function (value) {
         return (value.date.includes(day));
@@ -234,7 +228,8 @@ function fillContentDay(lessonsArray, day, dayZ) {
             type: '',
             teacher: '',
             until: ''
-        }) 
+        })
+
         }
     return dayContainer;
     }
@@ -253,14 +248,14 @@ function isWeekUnderLine() {
 }
 
 function completeWeek(today) {
-    //const todayCom = new Date('02/28/2022 18:38');
     const todayCom = new Date();
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
     setWeekName();
     if(`${today.getMonth()}/${today.getDate()}/${today.getFullYear()}` == `${todayCom.getMonth()}/${todayCom.getDate()}/${todayCom.getFullYear()}`) {
-        setColorNow(todayCom)
+        setColorNow(today);
+        nextLessonF(today);
     }
 }
 function fillTimeShedule() {
@@ -297,14 +292,12 @@ function setWeekName() {
     weekName.textContent = weekLessons[isWeekUnderLine()].title
 }
 
-function setColorNow(todayCom){
-    const weekDayNum = todayCom.getDay();
     function setColor(weekday,lessonNum) {
         if (!weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].classList.contains('lesson_empty')) {
-            weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum].classList.add('lesson_active')
-            weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].classList.add('lesson_active')
             lessonNow.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum]
             lessonNow.num = lessonNum;
+            weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum].classList.add('lesson_active')
+            weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].classList.add('lesson_active')
             const newClock = clockTemplate.querySelector('.clock__img').cloneNode(true);
             newClock.addEventListener('mouseenter', event => {
                 newClock.querySelector('.clock__text').classList.add('lesson__ticket-des_active')
@@ -337,30 +330,30 @@ function setColorNow(todayCom){
             })
             weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum].append(newClock);
             weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].append(newClockMb);
-        } 
-        if (weekTimeContainerMb[weekday].querySelectorAll('.time')[lessonNum] !== undefined){
-        weekTimeContainerPc.querySelectorAll('.time')[lessonNum].classList.add('time_active')
-        weekTimeContainerMb[weekday].querySelectorAll('.time')[lessonNum].classList.add('time_active')
-        }
-    }
-    const timePeridoFromOne = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[0].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[0].timePeriod.split(' - ')[0].split(':')[1]}`)
-    timePeridoFromOne.setMinutes(timePeridoFromOne.getMinutes() - 10)
-    const timePeridoToOne = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[0].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[0].timePeriod.split(' - ')[1].split(':')[1]}`)
-    timePeridoToOne.setMinutes(timePeridoToOne.getMinutes() + 4)
-    const timePeridoFromTwo = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[1].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[1].timePeriod.split(' - ')[0].split(':')[1]}`)
-    timePeridoFromTwo.setMinutes(timePeridoFromTwo.getMinutes() - 4)
-    const timePeridoToTwo = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[1].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[1].timePeriod.split(' - ')[1].split(':')[1]}`)
-    timePeridoToTwo.setMinutes(timePeridoToTwo.getMinutes() + 5)
-    const timePeridoFromThree = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[2].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[2].timePeriod.split(' - ')[0].split(':')[1]}`)
-    timePeridoFromThree.setMinutes(timePeridoFromThree.getMinutes() - 10)
-    const timePeridoToThree = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[2].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[2].timePeriod.split(' - ')[1].split(':')[1]}`)
-    timePeridoToThree.setMinutes(timePeridoToThree.getMinutes() + 4)
-    const timePeridoFromFour =new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[3].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[3].timePeriod.split(' - ')[0].split(':')[1]}`)
-    timePeridoFromFour.setMinutes(timePeridoFromFour.getMinutes() - 4)
-    const timePeridoToFour = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[3].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[3].timePeriod.split(' - ')[1].split(':')[1]}`)
-    timePeridoToFour.setMinutes(timePeridoToFour.getMinutes() + 5)
+            weekTimeContainerPc.querySelectorAll('.time')[lessonNum].classList.add('time_active')
+            weekTimeContainerMb[weekday].querySelectorAll('.time')[lessonNum].classList.add('time_active')
+            }}
+        
+
 
     function compareTime() {
+        const todayCom = today;
+        const timePeridoFromOne = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[0].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[0].timePeriod.split(' - ')[0].split(':')[1]}`)
+        timePeridoFromOne.setMinutes(timePeridoFromOne.getMinutes() - 10)
+        const timePeridoToOne = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[0].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[0].timePeriod.split(' - ')[1].split(':')[1]}`)
+        timePeridoToOne.setMinutes(timePeridoToOne.getMinutes() + 4)
+        const timePeridoFromTwo = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[1].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[1].timePeriod.split(' - ')[0].split(':')[1]}`)
+        timePeridoFromTwo.setMinutes(timePeridoFromTwo.getMinutes())
+        const timePeridoToTwo = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[1].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[1].timePeriod.split(' - ')[1].split(':')[1]}`)
+        timePeridoToTwo.setMinutes(timePeridoToTwo.getMinutes() + 5)
+        const timePeridoFromThree = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[2].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[2].timePeriod.split(' - ')[0].split(':')[1]}`)
+        timePeridoFromThree.setMinutes(timePeridoFromThree.getMinutes())
+        const timePeridoToThree = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[2].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[2].timePeriod.split(' - ')[1].split(':')[1]}`)
+        timePeridoToThree.setMinutes(timePeridoToThree.getMinutes() + 4)
+        const timePeridoFromFour =new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[3].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[3].timePeriod.split(' - ')[0].split(':')[1]}`)
+        timePeridoFromFour.setMinutes(timePeridoFromFour.getMinutes())
+        const timePeridoToFour = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[3].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[3].timePeriod.split(' - ')[1].split(':')[1]}`)
+        timePeridoToFour.setMinutes(timePeridoToFour.getMinutes() + 5)
         if (todayCom >= timePeridoFromOne && todayCom <= timePeridoToOne) {
             return 0;
         } else if (todayCom >= timePeridoFromTwo && todayCom <= timePeridoToTwo) {
@@ -371,25 +364,94 @@ function setColorNow(todayCom){
             return 3;
         }
     }
-    if (compareTime() !== undefined)  {
-        if (weekDaysContainerPc[setCentralWeek(weekDayNum)].querySelectorAll('.lesson').length == 4) {
-            setColor(setCentralWeek(weekDayNum), compareTime())
-            weekDaysFromCalendarPc[setCentralWeek(weekDayNum)].classList.add('table__headers_today')
-            weekDaysFromCalendarMb[setCentralWeek(weekDayNum)].classList.add('table__headers_today')
-        }  else if (weekDaysContainerPc[setCentralWeek(weekDayNum)].querySelectorAll('.lesson').length == 1) {
-            weekDaysFromCalendarPc[setCentralWeek(weekDayNum)].classList.add('table__headers_today')
-            weekDaysFromCalendarMb[setCentralWeek(weekDayNum)].classList.add('table__headers_today')
-            setColor(setCentralWeek(weekDayNum), 0)
-        }
-        } else { 
-        weekDaysFromCalendarPc[setCentralWeek(weekDayNum)].classList.add('table__headers_today')
-        weekDaysFromCalendarMb[setCentralWeek(weekDayNum)].classList.add('table__headers_today')
-        if (weekDaysContainerPc[setCentralWeek(weekDayNum)].querySelectorAll('.lesson').length == 1) {
-            setColor(setCentralWeek(weekDayNum), 0)
-        }
-        }
 
-        function compareTimeNext(today) {
+if (compareTime() !== undefined) {
+if (today.getDay() === 0) {
+    setColor(6, compareTime())
+    weekDaysFromCalendarPc[6].classList.add('table__headers_today')
+    weekDaysFromCalendarMb[6].classList.add('table__headers_today')
+} else {
+    setColor(today.getDay()-1, compareTime())
+    weekDaysFromCalendarPc[today.getDay()-1].classList.add('table__headers_today')
+    weekDaysFromCalendarMb[today.getDay()-1].classList.add('table__headers_today')
+} } else { 
+        if (today.getDay() === 0) {
+        weekDaysFromCalendarPc[6].classList.add('table__headers_today')
+        weekDaysFromCalendarMb[6].classList.add('table__headers_today')
+        } else {
+        weekDaysFromCalendarPc[today.getDay()-1].classList.add('table__headers_today')
+        weekDaysFromCalendarMb[today.getDay()-1].classList.add('table__headers_today')
+        } 
+}
+
+
+function nextLessonF(today) {
+    const lessonNum = compareTime();
+    let weekday = today.getDay
+    if (today.getDay() == 0) {
+        weekday = 6
+    } else {
+        weekday = today.getDay() - 1 
+    }
+    if (document.querySelector('.lesson_active') !== null) {
+        if (weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum + 1] !== null){
+            if (!weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum + 1].classList.contains('lesson_empty')) {
+                nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum +1]
+                nextLesson.num = lessonNum +1
+                nextLesson.day = today
+            } else if(!weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum + 2].classList.contains('lesson_empty')) {
+                nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum +2]
+                nextLesson.num = lessonNum +2
+                nextLesson.day = today
+            } else if (!weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum + 3].classList.contains('lesson_empty')){
+                nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum + 3]
+                nextLesson.num = lessonNum + 3
+                nextLesson.day = today
+            }
+        } else {
+            for (let i = 0; i < 4; i++) {
+                if (!weekDaysContainerPc[weekday + 1].querySelectorAll('.lesson')[i].classList.contains('lesson_empty')) {
+                nextLesson.dom = weekDaysContainerPc[0].querySelectorAll('.lesson')[i]
+                nextLesson.num = i
+                nextLesson.day = date.setDate(date.getDay() + 1);
+                }
+            }
+        }
+    } else if (today.getHours() >= 8 && today.getHours() < 16) {
+        if (weekDaysContainerPc[weekday].querySelectorAll('.lesson')[compareTimeNext()] !== null){
+            nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[compareTimeNext()]
+            nextLesson.num = compareTimeNext(today)
+            nextLesson.day = today
+        }
+    } else if (today.getHours() < 8) {
+        if (!weekDaysContainerPc[weekday].querySelectorAll('.lesson')[0].classList.contains('lesson_empty')){
+            nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[0]
+            nextLesson.num = 0
+            nextLesson.day = today
+        }
+        else if (!weekDaysContainerPc[weekday].querySelectorAll('.lesson')[1].classList.contains('lesson_empty')) {
+            nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[1]
+            nextLesson.num = 1
+            nextLesson.day = today
+        } else if(!weekDaysContainerPc[weekday].querySelectorAll('.lesson')[2].classList.contains('lesson_empty')) {
+            nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[2]
+            nextLesson.num = 2
+            nextLesson.day = today
+        } else if (!weekDaysContainerPc[weekday].querySelectorAll('.lesson')[3].classList.contains('lesson_empty')){
+            nextLesson.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[3]
+            nextLesson.num = 3
+            nextLesson.day = today
+        }
+    } else if (today.getHours() >= 16){
+            for (let i = 0; i < 4; i++) {
+                if (!weekDaysContainerPc[weekday + 1].querySelectorAll('.lesson')[i].classList.contains('lesson_empty')) {
+                nextLesson.dom = weekDaysContainerPc[0].querySelectorAll('.lesson')[i]
+                nextLesson.num = i
+                nextLesson.day = date.setDate(date.getDay() + 1);
+                }
+            }
+        }
+        function compareTimeNext() {
             const todayCom = today;
             const timePeridoFromTwo = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[1].timePeriod.split(' - ')[0].split(':')[0]}:${timeTable[1].timePeriod.split(' - ')[0].split(':')[1]}`)
             timePeridoFromTwo.setMinutes(timePeridoFromTwo.getMinutes() - 6)
@@ -399,156 +461,16 @@ function setColorNow(todayCom){
             timePeridoFromFour.setMinutes(timePeridoFromFour.getMinutes() - 6)
             const timePeridoToFour = new Date(`${todayCom.getMonth()+1}/${todayCom.getDate()}/${todayCom.getFullYear()} ${timeTable[3].timePeriod.split(' - ')[1].split(':')[0]}:${timeTable[3].timePeriod.split(' - ')[1].split(':')[1]}`)
             timePeridoToFour.setMinutes(timePeridoToFour.getMinutes() + 5)
-            if (todayCom <= timePeridoFromTwo) {
-                return 0;
-            } else if (todayCom >= timePeridoFromTwo && today < timePeridoFromThree) {
+    
+            if (todayCom >= timePeridoFromTwo && today < timePeridoFromThree) {
                 return 1;
             } else if (todayCom >= timePeridoFromThree && today < timePeridoFromFour) {
                 return 2;
             } else if (todayCom >= timePeridoFromFour && today < timePeridoToFour) {
                 return 3;
             }
-            }
-            
-            function setNextLesson(today){
-                const normDay = today;
-                let copyDay =  new Date(normDay);
-                const fromWorkingHours = new Date(`${normDay.getMonth()+1}/${normDay.getDate()}/${normDay.getFullYear()} 8:00`)
-                const toWorkingHours = new Date(`${normDay.getMonth()+1}/${normDay.getDate()}/${normDay.getFullYear()} 16:00`)
-                if (weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson_empty').length == 4 ||
-                weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelector('.lesson__ticket_sp') !== null) { //сегодня  выходной
-                    copyDay.setDate(copyDay.getDate()+1)
-                    const iterDate = new Date(copyDay)
-                    for (let i = 0; i < 6; i++) {
-                        if (nextLesson.obj == undefined || nextLesson.obj.title == '') {
-                        if (setCentralWeek(copyDay.getDay())  + i >= 6){
-                            const weekTypeNum = isWeekUnderLine() == 0 ? 1 : 0
-                            iterDate.setDate(copyDay.getDate() + i)
-                            nextLesson.obj =  fillContentDay(weekLessons[weekTypeNum].schedule[setCentralWeek(iterDate.getDay())], 0, iterDate).find( value =>
-                                value.title !== '')
-                            nextLesson.day = iterDate;
-                        } else {
-                            const weekTypeNum = isWeekUnderLine()
-                            iterDate.setDate(copyDay.getDate() + i)
-                            nextLesson.obj =  fillContentDay(weekLessons[weekTypeNum].schedule[setCentralWeek(iterDate.getDay())], 0, iterDate).find( value =>
-                                value.title !== '')
-                            nextLesson.day = iterDate;
-                        } } else {break}
-                    copyDay =  new Date(normDay);
-                    }
-                    copyDay =  new Date(normDay);
-                } else { //сегодня и завтра не выходной
-                    if (document.querySelector('.lesson_active') !== null) {
-                        if (weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 1] !== undefined &&!weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 1].classList.contains('lesson_empty')) {
-                            nextLesson.dom = weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 1]
-                            nextLesson.num = lessonNow.num +1
-                            nextLesson.day = copyDay
-                        } else if(weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 2] !== undefined && !weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 2].classList.contains('lesson_empty')) {
-                            nextLesson.dom = weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 2]
-                            nextLesson.num = lessonNow.num +2
-                            nextLesson.day = copyDay
-                        } else if (weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 3] !== undefined && !weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 3].classList.contains('lesson_empty')){
-                            nextLesson.dom = weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[lessonNow.num + 3]
-                            nextLesson.num = lessonNow.num + 3
-                            nextLesson.day = copyDay
-                        } else {setNextLessonNextDay()}
-                    } else {
-                        if (normDay >= fromWorkingHours && normDay <  toWorkingHours) {
-                            for (let i = compareTimeNext(copyDay) == undefined ? 0 : compareTimeNext(copyDay); i < 5; i++){
-                            if (weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[i] !== undefined && !weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[i].classList.contains('lesson_empty')) {
-                                nextLesson.dom = weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[i]
-                                nextLesson.num = i
-                                nextLesson.day = copyDay
-                                break;
-                                } 
-                            if (i == 4) {
-                                console.log
-                                setNextLessonNextDay();
-                                break;
-                            }
-                            } 
-                        } else if (normDay < fromWorkingHours) {
-                            for (let i = 0; i < 4; i++) {
-                                if (!weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[i].classList.contains('lesson_empty')) {
-                                    nextLesson.dom = weekDaysContainerPc[setCentralWeek(normDay.getDay())].querySelectorAll('.lesson')[i]
-                                    nextLesson.num = i
-                                    nextLesson.day = copyDay
-                                    break;
-                                    } 
-                                }
-                        } else if (normDay > fromWorkingHours) {
-                            copyDay.setDate(copyDay.getDate()+1)
-                            const iterDate = new Date(copyDay)
-                            if (weekDaysContainerPc[setCentralWeek(copyDay.getDay())].querySelectorAll('.lesson_empty').length == 4) {
-                                for (let i = 0; i < 6; i++) {
-                                    if (nextLesson.obj == undefined || nextLesson.obj.title == '') {
-                                        console.log(copyDay.getDay());
-                                    if (setCentralWeek(copyDay.getDay()) + i >= 6){
-                                        const weekTypeNum = isWeekUnderLine() == 0 ? 1 : 0
-                                        iterDate.setDate(copyDay.getDate() + i)
-                                        nextLesson.obj =  fillContentDay(weekLessons[weekTypeNum].schedule[setCentralWeek(iterDate.getDay())], 0, iterDate).find( value =>
-                                            value.title !== '')
-                                        nextLesson.day = iterDate;
-                                    } else {
-                                        const weekTypeNum = isWeekUnderLine(i)
-                                        iterDate.setDate(copyDay.getDate() + i)
-                                        nextLesson.obj =  fillContentDay(weekLessons[weekTypeNum].schedule[setCentralWeek(iterDate.getDay())], 0, iterDate).find( value =>
-                                            value.title !== '')
-                                        nextLesson.day = iterDate;
-                                    }
-                                } else {break}
-                                copyDay =  new Date(normDay);
-                                }
-                            } else if (weekDaysContainerPc[setCentralWeek(copyDay.getDay())].querySelector('.lesson__ticket_sp') !== null) {
-                                nextLesson.dom = weekDaysContainerPc[setCentralWeek(copyDay.getDay())].querySelectorAll('.lesson')[0]
-                                nextLesson.num = 0
-                                nextLesson.day = copyDay
-                            } else {
-                                for (let i = 0; i < 4; i++) {
-                                    if (!weekDaysContainerPc[setCentralWeek(copyDay.getDay())].querySelectorAll('.lesson')[i].classList.contains('lesson_empty')) {
-                                    nextLesson.dom = weekDaysContainerPc[setCentralWeek(copyDay.getDay())].querySelectorAll('.lesson')[i]
-                                    nextLesson.num = i
-                                    nextLesson.day = copyDay
-                                    break
-                                    }
-                                }
-                            }
-                            copyDay =  new Date(normDay);
-                        }
-                    }
-                    copyDay =  new Date(normDay);
-                }
-                function setNextLessonNextDay(){
-                    copyDay.setDate(copyDay.getDate()+1)
-                    const iterDate = new Date(copyDay)
-                    for (let i = 0; i < 6; i++) {
-                        if (nextLesson.obj == undefined || nextLesson.obj.title == '') {
-                        if (setCentralWeek(copyDay.getDay())  + i >= 6){
-                            const weekTypeNum = isWeekUnderLine() == 0 ? 1 : 0
-                            iterDate.setDate(copyDay.getDate() + i)
-                            nextLesson.obj =  fillContentDay(weekLessons[weekTypeNum].schedule[setCentralWeek(iterDate.getDay())], 0, iterDate).find( value =>
-                                value.title !== '')
-                            nextLesson.day = iterDate;
-                        } else {
-                            const weekTypeNum = isWeekUnderLine()
-                            iterDate.setDate(copyDay.getDate() + i)
-                            nextLesson.obj =  fillContentDay(weekLessons[weekTypeNum].schedule[setCentralWeek(iterDate.getDay())], 0, iterDate).find( value =>
-                                value.title !== '')
-                            nextLesson.day = iterDate;
-                        } } else {break}
-                        copyDay =  new Date(normDay);
-                    }
-                    }
-            }
-            setNextLesson(today)
         }
-        function setCentralWeek(weekday) {
-            if (weekday == 0) {
-                return 6
-            } else {
-                return weekday - 1;
-            }
-        }
+    }
 
 completeWeek(today);
 
