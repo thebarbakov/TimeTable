@@ -478,8 +478,8 @@ const timeTable = [
 ];
 
 const weekends = [{
-    title: 'TEST',
-    date: '20.2'
+    title: '',
+    date: ''
 }
 ]
 

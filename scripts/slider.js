@@ -59,9 +59,9 @@ if (nextLesson.dom !== ''){
 }
 
 sliderButton.addEventListener('click', event => {
-    if (event.target.classList.contains('slider__button_down')) {
-        slider.classList.add('slider__up');
+    if (event.target.closest('.slider').classList.contains('slider__down')) {
         sliderButton.classList.add('slider__button_up')
+        slider.classList.add('slider__up');
         setTimeout( () => {
             slider.classList.remove('slider__down');
             sliderButton.classList.remove('slider__button_down')
@@ -70,15 +70,21 @@ sliderButton.addEventListener('click', event => {
         slider.classList.add('slider__down');
         sliderButton.classList.add('slider__button_down')
         setTimeout( () => {
-            slider.classList.remove('slider__up');
             sliderButton.classList.remove('slider__button_up')
+            slider.classList.remove('slider__up');
         }, 700)
 }})
 
-// function openSlider(event){
+function startSlider(){
+    sliderButton.classList.add('slider__button_up')
+    slider.classList.add('slider__up');
+    setTimeout( () => {
+        sliderButton.classList.remove('slider__button_up')
+        slider.classList.remove('slider__up');
+        sliderButton.classList.add('slider__button_down')
+        slider.classList.add('slider__down');
+    }, 2000)
 
-// }
+}
 
-// function closeSlider(event){
-    
-// }
+startSlider()

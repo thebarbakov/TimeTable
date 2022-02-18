@@ -1,5 +1,5 @@
 .animation__close {
-    animation: close .5s forwards;
+    animation: close .5s forwards ease-in-out;
 }
 @keyframes close {
     from {
@@ -11,7 +11,7 @@
 }
 
 .animation__open {
-    animation: open .5s forwards;
+    animation: open .5s forwards ease-in-out;
 }
 @keyframes open {
     from {
