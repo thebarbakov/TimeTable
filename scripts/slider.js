@@ -26,6 +26,7 @@ if (lessonNow.dom !== '') {
                 openAnimation()
                 firstDay = weekDaysFromCalendarMb[0].textContent
                 lastDay = weekDaysFromCalendarMb[6].textContent
+                goToWeekday(lessonNow.weekDay)
             }
     })  
 }
@@ -49,8 +50,9 @@ if (nextLesson.dom !== ''){
         completeWeek(nextLesson.day)
         openAnimation()
         firstDay = weekDaysFromCalendarMb[0].textContent
-        lastDay = weekDaysFromCalendarMb[6].textContent
-        goToWeekday(setCentralWeek(nextLesson.day.getDay()))
+        lastDay = weekDaysFromCalendarMb[6].textContent;
+        goToWeekday(setCentralWeek(nextLesson.day.getDay())) 
+        
 
     })
 } else if (nextLesson.obj !== undefined){
@@ -83,7 +85,7 @@ if (nextLesson.dom !== ''){
                     openAnimation()
                     firstDay = weekDaysFromCalendarMb[0].textContent
                     lastDay = weekDaysFromCalendarMb[6].textContent
-                    goToWeekday(setCentralWeek(nextLesson.day.getDay())) 
+                    goToWeekday(setCentralWeek(nextLesson.day.getDay()))
         }) 
 } else {
     console.log('Что-то сломалось')
