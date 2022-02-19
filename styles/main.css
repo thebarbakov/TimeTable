@@ -40,7 +40,6 @@
     margin: 20px auto 0 auto;
     max-width: 90%;
     grid-template: 5% 7% 80%/ 5% repeat(6, 1fr) 10%;
-    min-height: 75vh;
     max-height: 75vh;
     justify-items: center;
     align-items: end;
@@ -328,6 +327,14 @@
     color: #f1f2f2;
 }
 
+.table__nextweek {
+    display: none;
+    margin: 30px auto 0 auto;
+    font-size: 20px;
+    border-bottom: #4d4d4f3a solid 3px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 960px){
     .main__title{
         margin: 20px auto 0 auto;
@@ -410,12 +417,8 @@
     .lesson:first-child{
         margin-top: 0;
     }
-}
-
-.table__nextweek {
-    display: flex;
-    margin: 30px auto 0 auto;
-    font-size: 20px;
-    border-bottom: #4d4d4f3a solid 3px;
+    .table__nextweek {
+        display: flex;
+    }
 }
 
