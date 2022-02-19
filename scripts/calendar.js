@@ -28,7 +28,7 @@ const datepicker = new Datepicker(calendar, {
     // The date format, combination of d, dd, D, DD, m, mm, M, MM, yy, yyyy.
     language: 'ru',
     // Maximum limit to selectable date. No limit is applied if null is set.
-    maxDate: '07/20/2022',
+    maxDate: '31/07/2022',
     // Maximum number of dates users can select. No limit is applied if 0 is set.
     maxNumberOfDates: 1,
     // Muximum limit to the view that the date picker displayes. 0:days – 3:decades.
