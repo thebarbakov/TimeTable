@@ -1,4 +1,5 @@
 @import url(../vendor/MuseoSans/stylesheet.css);
+@import url(../vendor/calender/styles/datepicker.css);
 @import url(../styles/footer.css);
 @import url(../styles/header.css);
 @import url(../styles/main.css);
@@ -7,3 +8,4 @@
 @import url(../styles/animation.css);
 @import url(../styles/popup.css);
 @import url(../styles/slider.css);
+@import url(../styles/calendar.css);

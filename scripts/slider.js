@@ -7,7 +7,8 @@ const sliderAfterText = document.querySelector('#slider-after-text')
 const sliderAfterNum = document.querySelector('#slider-after-when')
 const sliderAfterDate = document.querySelector('#slider-after-day')
 const sliderButton = document.querySelector('.slider__button')
-const sliderGoTo = document.querySelector('.slider__goto')
+const sliderGoTo = document.querySelector('#slider-goto')
+const sliderGoToNext = document.querySelector('#slider-goto-next')
 
 if (lessonNow.dom !== '') {
     const lessonNowTitle = lessonNow.dom.querySelector('.lesson__title')
@@ -17,19 +18,20 @@ if (lessonNow.dom !== '') {
     sliderNowText.addEventListener('click', event => openPopup(lessonNowTitle.textContent, lessonNow.dom.querySelector('.lesson__type').textContent,
     lessonNow.dom.querySelector('.lesson__room').textContent, lessonNow.dom.querySelector('.lesson__teacher').textContent, lessonNow.num + 1, lessonNow.dom.querySelector('.lesson__ticket-des').textContent))
     sliderGoTo.addEventListener('click', event => {
+        goToWeekday(lessonNow.weekDay)
         if(document.querySelector('.table__headers_today') == null){
                 closeAnimation()
                 clearDatas()
                 completeWeek(today)
                 openAnimation()
-                
+                firstDay = weekDaysFromCalendarMb[0].textContent
+                lastDay = weekDaysFromCalendarMb[6].textContent
             }
     })  
 }
 } else if (lessonNow.dom == ''){
     sliderNow.classList.add('slider__now_disable')
 }
-console.log(nextLesson)
 
 if (nextLesson.dom !== ''){
     const dayOfNextLesson = `${nextLesson.day.getDate()}.${nextLesson.day.getMonth()+1}`
@@ -41,6 +43,16 @@ if (nextLesson.dom !== ''){
     }
     sliderAfterText.addEventListener('click', event => openPopup(sliderAfterText.textContent, nextLesson.dom.querySelector('.lesson__type').textContent,
     nextLesson.dom.querySelector('.lesson__room').textContent, nextLesson.dom.querySelector('.lesson__teacher').textContent, nextLesson.num + 1, nextLesson.dom.querySelector('.lesson__ticket-des').textContent))
+    sliderGoToNext.addEventListener('click', e => {
+        closeAnimation()
+        clearDatas()
+        completeWeek(nextLesson.day)
+        openAnimation()
+        firstDay = weekDaysFromCalendarMb[0].textContent
+        lastDay = weekDaysFromCalendarMb[6].textContent
+        goToWeekday(setCentralWeek(nextLesson.day.getDay()))
+
+    })
 } else if (nextLesson.obj !== undefined){
     const dayOfNextLesson = `${nextLesson.day.getDate()}.${nextLesson.day.getMonth()+1}`
     const weekDayOfNextLesson = nextLesson.day.getDay() == 6 ? 0 : nextLesson.day.getDay() + 1;
@@ -64,6 +76,15 @@ if (nextLesson.dom !== ''){
                 return "Занятие по обычному расписанию" 
             } 
         }))
+        sliderGoToNext.addEventListener('click', event => {
+                    closeAnimation()
+                    clearDatas()
+                    completeWeek(nextLesson.day)
+                    openAnimation()
+                    firstDay = weekDaysFromCalendarMb[0].textContent
+                    lastDay = weekDaysFromCalendarMb[6].textContent
+                    goToWeekday(setCentralWeek(nextLesson.day.getDay())) 
+        }) 
 } else {
     console.log('Что-то сломалось')
 }
@@ -97,30 +118,29 @@ function startSlider(){
 
 }
 
-function setTodayButton(){
-    switch(lessonNow.weekDay){
+function goToWeekday(weekDay){
+    switch(weekDay){
         case(0):
-            sliderGoTo.setAttribute('href', '#monday-mb')
+        window.location.hash = 'monday-mb'
         break;
         case(1):
-            sliderGoTo.setAttribute('href', '#tuesday-mb')
+        window.location.hash = 'tuesday-mb'
         break;
         case(2):
-            sliderGoTo.setAttribute('href', '#wednesday-mb')
+        window.location.hash = 'wednesday-mb'
         break;
         case(3):
-            sliderGoTo.setAttribute('href', '#thursday-mb')  
+        window.location.hash = 'thursday-mb'  
         break;
         case(4):
-            sliderGoTo.setAttribute('href', '#friday-mb')  
+        window.location.hash = 'friday-mb'  
         break;
         case(5):
-            sliderGoTo.setAttribute('href', '#saturday-mb')          
+        window.location.hash = 'saturday-mb'          
         break;
         case(6):
-            sliderGoTo.setAttribute('href', '#sunday-mb')  
+        window.location.hash = 'sunday-mb'  
         break;
     }
 }
-setTodayButton()
 startSlider()

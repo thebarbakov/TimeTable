@@ -20,7 +20,12 @@
                 <h1 class="week__title">Расписание ОРМ-211</h1>
                 <div class="week">
                     <button class="week__button-prev" id="week-button-prev"></button>
-                    <p class="week__name">Текущая неделя:&nbsp;<span class="week__name_bold"></span></p>
+                    <div class="week__column">
+                        <div class="week__select">
+                            <input type="text" name="datepicker" class="week__calendar">
+                        </div>
+                        <p class="week__name">Текущая неделя:&nbsp;<span class="week__name_bold"></span></p>
+                    </div>
                     <button class="week__button-next" id="week-button-next"></button>
                 </div>
             </div>
@@ -118,7 +123,7 @@
         <div class="slider">
             <div class="slider__button"></div>
             <div class="slider__now" id="slider-now">
-                <a class="slider__goto"></a>
+                <a class="slider__goto" id="slider-goto"></a>
                 <div class="slider__string">
                     <div class="slider__text">Сейчас:&nbsp;</div>
                     <div class="slider__link" id="slider-now-text"></div>
@@ -126,6 +131,7 @@
                 <div class="slider__when" id="slider-now-when"></div>
             </div>
             <div class="slider__now" id="slider-after">
+                <a class="slider__goto" id="slider-goto-next"></a>
                 <div class="slider__string">
                     <div class="slider__text">Следующий:&nbsp;</div>
                     <div class="slider__link" id="slider-after-text"></div>
@@ -164,5 +170,8 @@
         <script src="./scripts/index.js"></script>
         <script src="./scripts/buttons.js"></script>
         <script src="./scripts/slider.js"></script>
+        <script src="./vendor/calender/scripts/datepicker.js"></script>
+        <script src="./vendor/calender/scripts/locales/ru.js"></script>
+        <script src="./scripts/calendar.js"></script>
     </body>
 </html>

@@ -1,8 +1,8 @@
 const lessonTemplate = document.querySelector('.template_lesson').content;
 const clockTemplate = document.querySelector('.template_clock').content;
 const timeTemplate = document.querySelector('.template_time').content;
-const today = new Date('06/01/2022 13:38');
-//const today = new Date();
+//const today = new Date('02/18/2022 13:48');
+const today = new Date();
 const weekDaysFromCalendarPc = [document.querySelector('#monday-pc'), document.querySelector('#tuesday-pc'), 
 document.querySelector('#wednesday-pc'), document.querySelector('#thursday-pc'), document.querySelector('#friday-pc'),
 document.querySelector('#saturday-pc'), document.querySelector('#sunday-pc')];
@@ -19,6 +19,8 @@ document.querySelector('#content-time-mb-4'), document.querySelector('#content-t
 const weekName = document.querySelector('.week__name_bold');
 let lessonNow = {dom: '', num: '', weekDay: ''};
 let nextLesson = {dom: '', num: '', day: '', obj: {title: ''}};
+let firstDayCompleteWeek;
+let lastDayCompleteWeek;
 
 
 function fillCallendar(day) {
@@ -251,13 +253,21 @@ function isWeekUnderLine() {
 }
 
 function completeWeek(today) {
-    const todayCom = new Date('06/01/2022 13:38');
-    //const todayCom = new Date();
+    //const todayCom = new Date('02/18/2022 13:48');
+    const todayCom = new Date();
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
     setWeekName();
     if(`${today.getMonth()}/${today.getDate()}/${today.getFullYear()}` == `${todayCom.getMonth()}/${todayCom.getDate()}/${todayCom.getFullYear()}`) {
+        setColorNow(todayCom)
+        firstDayCompleteWeek = weekDaysFromCalendarMb[0].textContent
+        lastDayCompleteWeek = weekDaysFromCalendarMb[6].textContent
+    }
+    if(`${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}` == `${firstDayCompleteWeek.split('.')[1]}/${firstDayCompleteWeek.split('.')[0]}/${todayCom.getFullYear()}`) {
+        setColorNow(todayCom)
+    }
+    if(`${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}` == `${lastDayCompleteWeek.split('.')[1]}/${lastDayCompleteWeek.split('.')[0]}/${todayCom.getFullYear()}`) {
         setColorNow(todayCom)
     }
 }
