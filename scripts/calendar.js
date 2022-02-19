@@ -22,7 +22,7 @@ const datepicker = new Datepicker(calendar, {
     // Defaults to today() by the program
     defaultViewDate: today, 
     // If true, no keyboard will show on mobile devices.
-    disableTouchKeyboard: false,
+    disableTouchKeyboard: true,
     // Date format string.
     format: 'dd.mm',
     // The date format, combination of d, dd, D, DD, m, mm, M, MM, yy, yyyy.
@@ -32,7 +32,7 @@ const datepicker = new Datepicker(calendar, {
     // Maximum number of dates users can select. No limit is applied if 0 is set.
     maxNumberOfDates: 1,
     // Muximum limit to the view that the date picker displayes. 0:days – 3:decades.
-    maxView: 0,
+    maxView: 1,
     // Minimum limit to selectable date. No limit is applied if null is set.
     minDate: '01/01/2022',
     // HTML (or plain text) for the button label of the "Next" and "Prev" button.
@@ -55,7 +55,7 @@ const datepicker = new Datepicker(calendar, {
     // If true or "linked", displays a "Today" button at the bottom of the datepicker to select the current date. 
     // If true, the "Today" button will only move the current date into view; 
     // if "linked", the current date will also be selected.
-    todayBtn: true,
+    todayBtn: 'linked',
     // 0  focus Move the focused date to the current date without changing the selection
     // 1 select  Select (or toggle the selection of) the current date
     todayBtnMode: 1,
