@@ -2,6 +2,7 @@ const prevButton = document.querySelector('#week-button-prev')
 const nextButton = document.querySelector('#week-button-next')
 let firstDay = weekDaysFromCalendarMb[0].textContent
 let lastDay = weekDaysFromCalendarMb[6].textContent
+const nextWeek = document.querySelector('.table__nextweek')
 
 function plusDay(day){
     let date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
@@ -67,3 +68,13 @@ function clearDatas(){
         value.classList.remove('table__headers_today')
     })
 }
+
+nextWeek.addEventListener('click', evt => {
+    closeAnimation()
+    clearDatas()
+    completeWeek(plusDay(lastDay))
+    firstDay = weekDaysFromCalendarMb[0].textContent
+    lastDay = weekDaysFromCalendarMb[6].textContent
+    goToWeekday(0)
+    openAnimation()
+})
