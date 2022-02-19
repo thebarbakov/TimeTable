@@ -1,8 +1,8 @@
 const lessonTemplate = document.querySelector('.template_lesson').content;
 const clockTemplate = document.querySelector('.template_clock').content;
 const timeTemplate = document.querySelector('.template_time').content;
-//const today = new Date('02/18/2022 13:48');
-const today = new Date();
+const today = new Date('02/18/2022 13:48');
+//const today = new Date();
 const weekDaysFromCalendarPc = [document.querySelector('#monday-pc'), document.querySelector('#tuesday-pc'), 
 document.querySelector('#wednesday-pc'), document.querySelector('#thursday-pc'), document.querySelector('#friday-pc'),
 document.querySelector('#saturday-pc'), document.querySelector('#sunday-pc')];
@@ -253,8 +253,8 @@ function isWeekUnderLine() {
 }
 
 function completeWeek(today) {
-    //const todayCom = new Date('02/18/2022 13:48');
-    const todayCom = new Date();
+    const todayCom = new Date('02/18/2022 13:48');
+    //const todayCom = new Date();
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
