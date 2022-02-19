@@ -485,22 +485,44 @@ const weekends = [{
 
 const subject =[{
     name: 'Педагогическое обеспечение работы с молодежью',
-    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15d8PjKnh4Cdtv31hwk1ZkRNO8reBi9VX'
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15d8PjKnh4Cdtv31hwk1ZkRNO8reBi9VX',
+    teacher: 'Зотова Марина Викторовна'
 },{
     name: 'Основы экономики',
-    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F167vfVKA1wdMRtLf1geSkxRC8bw7WWmYq'
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F167vfVKA1wdMRtLf1geSkxRC8bw7WWmYq',
+    teacher: 'Королева Лариса Владимировна'
 }, {
     name: 'Основы проектирования и технологии презентации',
-    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F16eKZ7JqZyeoaR50X9Lya_J06RgeHb_a0'
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F16eKZ7JqZyeoaR50X9Lya_J06RgeHb_a0',
+    teacher: 'Алиева Зайнаб Кадиевна'
 },{
     name: 'Великие книги',
-    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F16adX5h-dAAou3HSOv5fz8mTKRx-3pDgd'
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F16adX5h-dAAou3HSOv5fz8mTKRx-3pDgd',
+    teacher: 'Черезов Александр Евгеньевич'
 },{
     name: 'Информационные технологии в социальной сфере',
-    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15VazuwQqstmdQDYj7VwheUCIHUTTD13u'
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15VazuwQqstmdQDYj7VwheUCIHUTTD13u',
+    teacher: 'Иванцов Олег Владимирович'
 },{
     name: 'Английский язык',
-    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15UX3DeHFe0b9K1IyxbakeYde8_Uv7gIC'
+    url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15UX3DeHFe0b9K1IyxbakeYde8_Uv7gIC',
+    teacher: 'Белышева Маргарита Дмитриевна'
+}, {
+    name: 'Элективный модуль',
+    url: '',
+    teacher: ''
+},{
+    name: 'Философия',
+    url: '',
+    teacher: 'Черезов Александр Евгеньевич'
+},{
+    name: 'Социальная психология',
+    url: '',
+    teacher: 'Васильева Татьяна Витальевна'
+}, {
+    name: 'Безопасность жизнедеятельности',
+    url: '',
+    teacher: 'Красильников Арсентий Александрович'
 }
 ]
 // TimeTable

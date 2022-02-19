@@ -121,6 +121,7 @@
     padding: 0 8px;
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .lesson__title {
@@ -300,6 +301,8 @@
 .lesson_empty{
     background-color: initial;
     border: solid 3px #f1f2f2;
+    cursor: initial;
+    pointer-events: none;
     
 }
 

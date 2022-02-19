@@ -1,7 +1,7 @@
 const lessonTemplate = document.querySelector('.template_lesson').content;
 const clockTemplate = document.querySelector('.template_clock').content;
 const timeTemplate = document.querySelector('.template_time').content;
-//const today = new Date('06/15/2022 14:38');
+//const today = new Date('06/01/2022 13:38');
 const today = new Date();
 const weekDaysFromCalendarPc = [document.querySelector('#monday-pc'), document.querySelector('#tuesday-pc'), 
 document.querySelector('#wednesday-pc'), document.querySelector('#thursday-pc'), document.querySelector('#friday-pc'),
@@ -169,9 +169,7 @@ function createLessonCard(title, type, room, teacher, num, date) {
         ('lesson__ticket-des_active');
         setTimeout(timeHandlerTickets, 2000);
     })
-    newLessonCard.querySelector('.lesson__title').addEventListener('click', evt => 
-    openPopup(title, type, room, teacher, num, messageType))
-    newLessonCard.querySelector('.lesson__click').addEventListener('click', evt => 
+    newLessonCard.addEventListener('click', evt => 
     openPopup(title, type, room, teacher, num, messageType))
     return newLessonCard; 
 }
@@ -253,7 +251,7 @@ function isWeekUnderLine() {
 }
 
 function completeWeek(today) {
-    //const todayCom = new Date('06/15/2022 14:38');
+    //const todayCom = new Date('06/01/2022 13:38');
     const todayCom = new Date();
     fillCallendar(today);
     fillTimeShedule()

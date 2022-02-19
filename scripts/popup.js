@@ -20,11 +20,16 @@ function openPopup(title, type, room, teacher, num, messageType){
     num == '' ? popup.querySelector('.popup__time').classList.add('popup__hided') : unhide('.popup__time', popupTime, timeTable[num-1].timePeriod)
     type == '' ? popup.querySelector('.popup__type').classList.add('popup__hided') : unhide('.popup__type', popupType, type)
     room == '' ? popup.querySelector('.popup__room').classList.add('popup__hided') : unhide('.popup__room', popupRoom, room)
-    teacher == '' ? popup.querySelector('.popup__teache').classList.add('popup__hided') : unhide('.popup__teache', popupTeacher, teacher)
-    if (subject.find(value => value.name == title) !== undefined) {
+    if (subject.find(value => value.name == title) !== undefined && subject.find(value => value.name == title).url !== '') {
         popupUrl.setAttribute('href', subject.find(value => value.name == title).url)
     } else {
         popupUrl.classList.add('popup__url_disabled')
+    }
+    if (subject.find(value => value.name == title) !== undefined && subject.find(value => value.name == title).teacher !== '') {
+        unhide('.popup__teache', popupTeacher, (subject.find(value => value.name == title).teacher))
+    } else {
+        console.log('123')
+        popup.querySelector('.popup__teache').classList.add('popup__hided')
     }
     switch (messageType){
         case ('1'):
@@ -46,13 +51,14 @@ function openPopup(title, type, room, teacher, num, messageType){
 }
 
 function popupClose() {
-    popupMessage.classList.remove('popup__message_red')
-    popupUrl.classList.remove('popup__url_disabled')
     popup.classList.remove('animation__open');
     popup.classList.add('animation__close');
     function removeClasses() {
         popup.classList.remove('popup_active');
         popup.classList.remove('animation__close');
+        popupMessage.classList.remove('popup__message_red')
+        popupUrl.classList.remove('popup__url_disabled')
+        clearForm()
     }
     setTimeout(removeClasses, 500)
 }
@@ -65,6 +71,14 @@ function setHeight(){
       );  
       popup.style.height = scrollHeight + 'px';
 } 
+
+function clearForm(){
+    popupTitle.textContent = ''
+    popupTime.textContent = '' 
+    popupType.textContent = '' 
+    popupRoom.textContent = '' 
+    popupTeacher.textContent = ''
+}
 
 window.addEventListener(`resize`, event => {setHeight();}, false);
 
