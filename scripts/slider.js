@@ -7,6 +7,7 @@ const sliderAfterText = document.querySelector('#slider-after-text')
 const sliderAfterNum = document.querySelector('#slider-after-when')
 const sliderAfterDate = document.querySelector('#slider-after-day')
 const sliderButton = document.querySelector('.slider__button')
+const sliderGoTo = document.querySelector('.slider__goto')
 
 if (lessonNow.dom !== '') {
     const lessonNowTitle = lessonNow.dom.querySelector('.lesson__title')
@@ -15,7 +16,16 @@ if (lessonNow.dom !== '') {
     if (lessonNow.dom.querySelector('.lesson__room').textContent !== ''){
     sliderNowText.addEventListener('click', event => openPopup(lessonNowTitle.textContent, lessonNow.dom.querySelector('.lesson__type').textContent,
     lessonNow.dom.querySelector('.lesson__room').textContent, lessonNow.dom.querySelector('.lesson__teacher').textContent, lessonNow.num + 1, lessonNow.dom.querySelector('.lesson__ticket-des').textContent))
-    }
+    sliderGoTo.addEventListener('click', event => {
+        if(document.querySelector('.table__headers_today') == null){
+                closeAnimation()
+                clearDatas()
+                completeWeek(today)
+                openAnimation()
+                
+            }
+    })  
+}
 } else if (lessonNow.dom == ''){
     sliderNow.classList.add('slider__now_disable')
 }
@@ -87,4 +97,30 @@ function startSlider(){
 
 }
 
+function setTodayButton(){
+    switch(lessonNow.weekDay){
+        case(0):
+            sliderGoTo.setAttribute('href', '#monday-mb')
+        break;
+        case(1):
+            sliderGoTo.setAttribute('href', '#tuesday-mb')
+        break;
+        case(2):
+            sliderGoTo.setAttribute('href', '#wednesday-mb')
+        break;
+        case(3):
+            sliderGoTo.setAttribute('href', '#thursday-mb')  
+        break;
+        case(4):
+            sliderGoTo.setAttribute('href', '#friday-mb')  
+        break;
+        case(5):
+            sliderGoTo.setAttribute('href', '#saturday-mb')          
+        break;
+        case(6):
+            sliderGoTo.setAttribute('href', '#sunday-mb')  
+        break;
+    }
+}
+setTodayButton()
 startSlider()

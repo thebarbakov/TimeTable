@@ -38,7 +38,7 @@
     border: #4d4d4f solid 1px;
     border-radius: 5px;
     margin-top: 10px;
-    bottom: 30px;
+    position: relative;
     
 }
 .slider__now_disable {
@@ -160,3 +160,18 @@
         background-image: url(../images/hide.png);
     }
 } 
+
+.slider__goto {
+    position: absolute;
+    border: transparent;
+    height: 25px;
+    width: 25px;
+    bottom: 9px;
+    left: -40px;
+    z-index: 6;
+    background-image: url(../images/goto.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    cursor: pointer;
+}

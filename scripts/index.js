@@ -1,8 +1,8 @@
 const lessonTemplate = document.querySelector('.template_lesson').content;
 const clockTemplate = document.querySelector('.template_clock').content;
 const timeTemplate = document.querySelector('.template_time').content;
-//const today = new Date('06/01/2022 13:38');
-const today = new Date();
+const today = new Date('06/01/2022 13:38');
+//const today = new Date();
 const weekDaysFromCalendarPc = [document.querySelector('#monday-pc'), document.querySelector('#tuesday-pc'), 
 document.querySelector('#wednesday-pc'), document.querySelector('#thursday-pc'), document.querySelector('#friday-pc'),
 document.querySelector('#saturday-pc'), document.querySelector('#sunday-pc')];
@@ -17,7 +17,7 @@ const weekTimeContainerPc = document.querySelector('#content-time-pc')
 const weekTimeContainerMb = [document.querySelector('#content-time-mb-1'), document.querySelector('#content-time-mb-2'), document.querySelector('#content-time-mb-3'),
 document.querySelector('#content-time-mb-4'), document.querySelector('#content-time-mb-5'), document.querySelector('#content-time-mb-6'), document.querySelector('#content-time-mb-7')];
 const weekName = document.querySelector('.week__name_bold');
-let lessonNow = {dom: '', num: ''};
+let lessonNow = {dom: '', num: '', weekDay: ''};
 let nextLesson = {dom: '', num: '', day: '', obj: {title: ''}};
 
 
@@ -251,8 +251,8 @@ function isWeekUnderLine() {
 }
 
 function completeWeek(today) {
-    //const todayCom = new Date('06/01/2022 13:38');
-    const todayCom = new Date();
+    const todayCom = new Date('06/01/2022 13:38');
+    //const todayCom = new Date();
     fillCallendar(today);
     fillTimeShedule()
     fillWeekLessons();
@@ -303,6 +303,7 @@ function setColorNow(todayCom){
             weekDaysContainerMb[weekday].querySelectorAll('.lesson')[lessonNum].classList.add('lesson_active')
             lessonNow.dom = weekDaysContainerPc[weekday].querySelectorAll('.lesson')[lessonNum]
             lessonNow.num = lessonNum;
+            lessonNow.weekDay = weekday;
             const newClock = clockTemplate.querySelector('.clock__img').cloneNode(true);
             newClock.addEventListener('mouseenter', event => {
                 newClock.querySelector('.clock__text').classList.add('lesson__ticket-des_active')
