@@ -121,6 +121,7 @@ function startSlider(){
 }
 
 function goToWeekday(weekDay){
+    window.location.hash = ''
     switch(weekDay){
         case(0):
         window.location.hash = 'monday-mb'
