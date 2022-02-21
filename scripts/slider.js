@@ -13,7 +13,12 @@ const sliderGoToNext = document.querySelector('#slider-goto-next')
 if (lessonNow.dom !== '') {
     const lessonNowTitle = lessonNow.dom.querySelector('.lesson__title')
     sliderNowText.textContent = lessonNowTitle.textContent
-    sliderNowNum.textContent = timeTable[lessonNow.num].timePeriod
+    if (lessonNow.dom.querySelector('.lesson__room').textContent !== ''){
+        sliderNowNum.textContent = timeTable[lessonNow.num].timePeriod
+        } else {
+            sliderNowNum.classList.add('slider__hided');
+        }
+    
     if (lessonNow.dom.querySelector('.lesson__room').textContent !== ''){
     sliderNowText.addEventListener('click', event => openPopup(lessonNowTitle.textContent, lessonNow.dom.querySelector('.lesson__type').textContent,
     lessonNow.dom.querySelector('.lesson__room').textContent, lessonNow.dom.querySelector('.lesson__teacher').textContent, lessonNow.num + 1, lessonNow.dom.querySelector('.lesson__ticket-des').textContent))
@@ -41,6 +46,8 @@ if (nextLesson.dom !== ''){
     sliderAfterDate.textContent = dayOfNextLesson
     if (nextLesson.dom.querySelector('.lesson__room').textContent !== ''){
     sliderAfterNum.textContent = timeTable[nextLesson.num].timePeriod
+    } else {
+        sliderAfterNum.classList.add('slider__hided');
     }
     sliderAfterText.addEventListener('click', event => openPopup(sliderAfterText.textContent, nextLesson.dom.querySelector('.lesson__type').textContent,
     nextLesson.dom.querySelector('.lesson__room').textContent, nextLesson.dom.querySelector('.lesson__teacher').textContent, nextLesson.num + 1, nextLesson.dom.querySelector('.lesson__ticket-des').textContent))
@@ -62,6 +69,8 @@ if (nextLesson.dom !== ''){
     sliderAfterDate.textContent = dayOfNextLesson
     if (nextLesson.obj.room !== ''){
         sliderAfterNum.textContent = timeTable[nextLesson.obj.num - 1].timePeriod
+        } else {
+            sliderAfterNum.classList.add('slider__hided');
         }
     sliderAfterText.addEventListener('click', event => openPopup(nextLesson.obj.title, nextLesson.obj.type,
         nextLesson.obj.room, nextLesson.obj.teacher, nextLesson.obj.num, function(){
