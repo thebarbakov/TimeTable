@@ -521,7 +521,7 @@ const subject =[{
     teacher: 'Васильева Татьяна Витальевна'
 }, {
     name: 'Безопасность жизнедеятельности',
-    url: '',
+    url: 'https://drive.google.com/drive/folders/16xTh4a6KeastCwoIX408-zepo16-tte3',
     teacher: 'Красильников Арсентий Александрович'
 }
 ]
