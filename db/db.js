@@ -517,7 +517,7 @@ const subject =[{
     teacher: 'Черезов Александр Евгеньевич'
 },{
     name: 'Социальная психология',
-    url: '',
+    url: 'https://drive.google.com/drive/folders/17-nhIFqhEir8GJWnGzQlPcDrE19RqZEk',
     teacher: 'Васильева Татьяна Витальевна'
 }, {
     name: 'Безопасность жизнедеятельности',
