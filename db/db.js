@@ -71,7 +71,7 @@ const weekLessons = [
             {
             num: '1',
             title: 'Английский язык',
-            room: 'Teams',
+            room: 'ауд. 304',
             type: 'Практика',
             teacher: 'Белышева Маргарита Дмитриевна',
             until: '25.5'
@@ -79,7 +79,7 @@ const weekLessons = [
             {
             num: '2',
             title: 'Философия',
-            room: 'Teams',
+            room: 'ауд. 304',
             type: 'Семинар',
             teacher: 'Черезов Александр Евгеньевич',
             until: '25.5'
@@ -87,7 +87,7 @@ const weekLessons = [
             {
             num: '3',
             title: 'Информационные технологии в социальной сфере',
-            room: 'Teams',
+            room: 'ауд. 306',
             type: 'Лабораторная',
             teacher: 'Иванцов Олег Владимирович',
             until: '8.6'
@@ -95,7 +95,7 @@ const weekLessons = [
             {
             num: '4',
             title: 'Информационные технологии в социальной сфере',
-            room: 'Teams',
+            room: 'ауд. 306',
             type: 'Лабораторная',
             teacher: 'Иванцов Олег Владимирович',
             until: '8.6'
@@ -113,14 +113,14 @@ const weekLessons = [
             num: '2',
             title: 'Педагогическое обеспечение работы с молодежью',
             room: 'Teams',
-            type: 'Лекция',
+            type: 'ауд. 407',
             teacher: 'Зотова Марина Викторовна',
             until: '9.6'
             },
             {
             num: '3',
             title: 'Педагогическое обеспечение работы с молодежью',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Семинар',
             teacher: 'Зотова Марина Викторовна',
             until: '9.6'
@@ -128,7 +128,7 @@ const weekLessons = [
             {
             num: '4',
             title: 'Педагогическое обеспечение работы с молодежью',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Лекция',
             teacher: 'Зотова Марина Викторовна',
             until: '9.6'
@@ -153,7 +153,7 @@ const weekLessons = [
             {
             num: '3',
             title: 'Основы экономики',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Лекция',
             teacher: 'Королева Лариса Владимировна',
             until: '10.6'
@@ -161,7 +161,7 @@ const weekLessons = [
             {
             num: '4',
             title: 'Основы экономики',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Семинар',
             teacher: 'Королева Лариса Владимировна',
             until: '10.6'
@@ -274,7 +274,7 @@ const weekLessons = [
             {
             num: '1',
             title: 'Английский язык',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Практика',
             teacher: 'Белышева Маргарита Дмитриевна',
             until: '25.5'
@@ -282,7 +282,7 @@ const weekLessons = [
             {
             num: '2',
             title: 'Информационные технологии в социальной сфере',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Лекция',
             teacher: 'Иванцов Олег Владимирович',
             until: '15.6'
@@ -290,7 +290,7 @@ const weekLessons = [
             {
             num: '3',
             title: 'Информационные технологии в социальной сфере',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Лекция',
             teacher: 'Иванцов Олег Владимирович',
             until: '8.6'
@@ -314,7 +314,7 @@ const weekLessons = [
             {
             num: '2',
             title: 'Педагогическое обеспечение работы с молодежью',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Лекция',
             teacher: 'Зотова Марина Викторовна',
             until: '9.6'
@@ -322,7 +322,7 @@ const weekLessons = [
             {
             num: '3',
             title: 'Педагогическое обеспечение работы с молодежью',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Семинар',
             teacher: 'Зотова Марина Викторовна',
             until: '9.6'
@@ -355,7 +355,7 @@ const weekLessons = [
             {
             num: '3',
             title: 'Основы экономики',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Лекция',
             teacher: 'Королева Лариса Владимировна',
             until: '10.6'
@@ -363,7 +363,7 @@ const weekLessons = [
             {
             num: '4',
             title: 'Основы экономики',
-            room: 'Teams',
+            room: 'ауд. 407',
             type: 'Семинар',
             teacher: 'Королева Лариса Владимировна',
             until: '10.6'
