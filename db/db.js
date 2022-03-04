@@ -455,6 +455,21 @@ const specialLessons = [{
     room: 'Teams',
     type: 'Лекция',
     teacher: 'Алиева Зайнаб Кадиевна'
+    }, {
+    date: '11.3',
+    num: '3',
+    title: 'Основы экономики',
+    room: 'Teams',
+    type: 'Лекция',
+    teacher: 'Королева Лариса Владимировна',
+    },
+    {
+    date: '11.3',
+    num: '4',
+    title: 'Основы экономики',
+    room: 'Teams',
+    type: 'Семинар',
+    teacher: 'Королева Лариса Владимировна',
     }
 ];
 
