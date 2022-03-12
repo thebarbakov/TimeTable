@@ -20,6 +20,12 @@ function openPopup(title, type, room, teacher, num, messageType){
     num == '' ? popup.querySelector('.popup__time').classList.add('popup__hided') : unhide('.popup__time', popupTime, timeTable[num-1].timePeriod)
     type == '' ? popup.querySelector('.popup__type').classList.add('popup__hided') : unhide('.popup__type', popupType, type)
     room == '' ? popup.querySelector('.popup__room').classList.add('popup__hided') : unhide('.popup__room', popupRoom, room)
+    if (title == 'Английский язык') {
+        document.querySelector('.popup__url-t').style.display = 'flex';
+        document.querySelector('.popup__url-t').setAttribute('href', subject.find(value => value.name == title).urlT)
+    } else {
+        document.querySelector('.popup__url-t').style.display = 'none';
+    }
     if (subject.find(value => value.name == title) !== undefined && subject.find(value => value.name == title).url !== '') {
         popupUrl.setAttribute('href', subject.find(value => value.name == title).url)
     } else {
@@ -69,8 +75,10 @@ function setHeight(){
         document.body.offsetHeight, document.documentElement.offsetHeight,
         document.body.clientHeight, document.documentElement.clientHeight
       );  
-      popup.style.height = scrollHeight + 'px';
+    popup.style.height = scrollHeight + 'px';
 } 
+
+window.addEventListener(`resize`, event => {setHeight();}, false);
 
 function clearForm(){
     popupTitle.textContent = ''
@@ -80,6 +88,6 @@ function clearForm(){
     popupTeacher.textContent = ''
 }
 
-window.addEventListener(`resize`, event => {setHeight();}, false);
+
 
 setHeight();

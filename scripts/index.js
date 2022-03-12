@@ -491,7 +491,6 @@ function setColorNow(todayCom){
                             if (weekDaysContainerPc[setCentralWeek(copyDay.getDay())].querySelectorAll('.lesson_empty').length == 4) {
                                 for (let i = 0; i < 6; i++) {
                                     if (nextLesson.obj == undefined || nextLesson.obj.title == '') {
-                                        console.log(copyDay.getDay());
                                     if (setCentralWeek(copyDay.getDay()) + i >= 6){
                                         const weekTypeNum = isWeekUnderLine() == 0 ? 1 : 0
                                         iterDate.setDate(copyDay.getDate() + i)

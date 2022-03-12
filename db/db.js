@@ -603,7 +603,8 @@ const subject =[{
 },{
     name: 'Английский язык',
     url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15UX3DeHFe0b9K1IyxbakeYde8_Uv7gIC',
-    teacher: 'Белышева Маргарита Дмитриевна'
+    teacher: 'Белышева Маргарита Дмитриевна',
+    urlT: 'https://drive.google.com/drive/folders/1q6hrLE4NGl4SI2xvhXqSIlKHcHbNIJ2g',
 }, {
     name: 'Элективный модуль',
     url: '',
