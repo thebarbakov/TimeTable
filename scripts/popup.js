@@ -34,7 +34,6 @@ function openPopup(title, type, room, teacher, num, messageType){
     if (subject.find(value => value.name == title) !== undefined && subject.find(value => value.name == title).teacher !== '') {
         unhide('.popup__teache', popupTeacher, (subject.find(value => value.name == title).teacher))
     } else {
-        console.log('123')
         popup.querySelector('.popup__teache').classList.add('popup__hided')
     }
     switch (messageType){
