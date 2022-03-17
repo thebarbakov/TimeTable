@@ -57,12 +57,10 @@
 }
 
 .table__headers_date {
-    display: flex;
     text-align: center;
     font-size: 18px;
     height: auto;
     width: auto;
-    justify-content: center;
     font-weight: bold;
     color: #ee3524;
 }
@@ -171,7 +169,7 @@
 .table_mb{
     display: none;
     margin: 0 10px 0 10px;
-    grid-template: 76px 400px / 15vw 15vw 70vw ;
+    grid-template: 80px 400px / 15vw 15vw 70vw ;
     grid-auto-flow: row;
     grid-auto-rows: 76px 400px;
     justify-items: center;
@@ -271,9 +269,23 @@
 }
 
 .table__headers_today{
-    color: #ee3524;
+    color: #f1f2f2;
     font-weight: bold;
-    border-bottom: #ee3524 7px solid;
+    background-color: #ee3524;
+    border: #ee3524 2px solid;
+    border-radius: 3px;
+    padding: 2px 9px;
+}
+
+.table__headers_hb{
+    background-color: rgb(70, 130, 180);
+    color: #f1f2f2;
+    padding: 2px 9px;
+    border-radius: 3px;
+}
+.table__headers_hb::after{
+    content: ' 🍰';
+    
 }
 
 .lesson__ticket-des_active{
@@ -414,6 +426,8 @@
         font-size: 14px;
         font-weight: 300;
         content: 'дата';
+        display: block;
+        text-align: center;
     }
     .clock__img {
         height: 18px;

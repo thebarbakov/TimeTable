@@ -1,7 +1,7 @@
 const lessonTemplate = document.querySelector('.template_lesson').content;
 const clockTemplate = document.querySelector('.template_clock').content;
 const timeTemplate = document.querySelector('.template_time').content;
-//const today = new Date('02/23/2022 16:00');
+//const today = new Date('03/18/2022 16:00');
 const today = new Date();
 const weekDaysFromCalendarPc = [document.querySelector('#monday-pc'), document.querySelector('#tuesday-pc'), 
 document.querySelector('#wednesday-pc'), document.querySelector('#thursday-pc'), document.querySelector('#friday-pc'),
@@ -21,6 +21,7 @@ let lessonNow = {dom: '', num: '', weekDay: ''};
 let nextLesson = {dom: '', num: '', day: '', obj: {title: ''}};
 let firstDayCompleteWeek;
 let lastDayCompleteWeek;
+let typeOfAction = 0;
 
 
 function fillCallendar(day) {
@@ -253,7 +254,7 @@ function isWeekUnderLine() {
 }
 
 function completeWeek(today) {
-    //const todayCom = new Date('02/23/2022 16:00');
+    //const todayCom = new Date('03/18/2022 16:00');
     const todayCom = new Date();
     fillCallendar(today);
     fillTimeShedule()
@@ -270,6 +271,13 @@ function completeWeek(today) {
     if(`${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}` == `${lastDayCompleteWeek.split('.')[1]}/${lastDayCompleteWeek.split('.')[0]}/${todayCom.getFullYear()}`) {
         setColorNow(todayCom)
     }
+    document.querySelectorAll('.table__headers_date').forEach( element => {
+        if (element.textContent == '17.3') {
+            element.classList.add('table__headers_hb')
+        } else {
+            element.classList.remove('table__headers_hb')
+        }
+    })
 }
 function fillTimeShedule() {
     for (i = 0; i < timeTable.length; i++) {

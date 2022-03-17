@@ -8,13 +8,12 @@ function plusDay(day){
     let date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
     date.setDate(date.getDate() + 1);
     return date;
+    
 }
 
 function minusDay(day){
     let date = new Date(`${day.split('.')[1]}/${day.split('.')[0]}/${today.getFullYear()}`);
-    console.log(date);
     date.setDate(date.getDate() - 1)
-    console.log(date);
     return date;
 }
 
@@ -36,21 +35,27 @@ function closeAnimation() {
 }
 
 prevButton.addEventListener('click', evt => {
+    typeOfAction = 1;
     closeAnimation()
     clearDatas()
+    datepicker.setDate(minusDay(firstDay));
     completeWeek(minusDay(firstDay))
     firstDay = weekDaysFromCalendarMb[0].textContent
     lastDay = weekDaysFromCalendarMb[6].textContent
     openAnimation()
+    typeOfAction = 0;
 })
 
 nextButton.addEventListener('click', evt => {
+    typeOfAction = 1;
     closeAnimation()
     clearDatas()
+    datepicker.setDate(plusDay(lastDay));
     completeWeek(plusDay(lastDay))
     firstDay = weekDaysFromCalendarMb[0].textContent
     lastDay = weekDaysFromCalendarMb[6].textContent
     openAnimation()
+    typeOfAction = 0;
 })
 
 function clearDatas(){
@@ -70,11 +75,14 @@ function clearDatas(){
 }
 
 nextWeek.addEventListener('click', evt => {
+    typeOfAction = 1;
     closeAnimation()
     clearDatas()
     completeWeek(plusDay(lastDay))
+    datepicker.setDate(plusDay(lastDay));
     firstDay = weekDaysFromCalendarMb[0].textContent
     lastDay = weekDaysFromCalendarMb[6].textContent
     goToWeekday(0)
     openAnimation()
+    typeOfAction = 0;
 })

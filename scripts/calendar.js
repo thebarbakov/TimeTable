@@ -70,7 +70,9 @@ const datepicker = new Datepicker(calendar, {
     // A function that takes a date as a parameter and returns one of the following values:
 })
 datepicker.setDate(today)
+
 calendar.addEventListener('changeDate', event => {
+    if (typeOfAction !== 1) {
     closeAnimation()
     clearDatas()
     completeWeek(datepicker.getDate())
@@ -78,4 +80,5 @@ calendar.addEventListener('changeDate', event => {
     lastDay = weekDaysFromCalendarMb[6].textContent
     openAnimation()
     goToWeekday(setCentralWeek(datepicker.getDate().getDay()))
+    }
 })

@@ -25,13 +25,16 @@ if (lessonNow.dom !== '') {
     sliderGoTo.addEventListener('click', event => {
         goToWeekday(lessonNow.weekDay)
         if(document.querySelector('.table__headers_today') == null){
+                typeOfAction = 1;
                 closeAnimation()
                 clearDatas()
+                datepicker.setDate(today);
                 completeWeek(today)
                 openAnimation()
                 firstDay = weekDaysFromCalendarMb[0].textContent
                 lastDay = weekDaysFromCalendarMb[6].textContent
                 goToWeekday(lessonNow.weekDay)
+                typeOfAction = 0;
             }
     })  
 }
@@ -52,6 +55,8 @@ if (nextLesson.dom !== ''){
     sliderAfterText.addEventListener('click', event => openPopup(sliderAfterText.textContent, nextLesson.dom.querySelector('.lesson__type').textContent,
     nextLesson.dom.querySelector('.lesson__room').textContent, nextLesson.dom.querySelector('.lesson__teacher').textContent, nextLesson.num + 1, nextLesson.dom.querySelector('.lesson__ticket-des').textContent))
     sliderGoToNext.addEventListener('click', e => {
+        typeOfAction = 1;
+        datepicker.setDate(nextLesson.day);
         closeAnimation()
         clearDatas()
         completeWeek(nextLesson.day)
@@ -59,6 +64,7 @@ if (nextLesson.dom !== ''){
         firstDay = weekDaysFromCalendarMb[0].textContent
         lastDay = weekDaysFromCalendarMb[6].textContent;
         goToWeekday(setCentralWeek(nextLesson.day.getDay())) 
+        typeOfAction = 0;
         
 
     })
@@ -88,6 +94,8 @@ if (nextLesson.dom !== ''){
             } 
         }))
         sliderGoToNext.addEventListener('click', event => {
+                    typeOfAction = 1;
+                    datepicker.setDate(nextLesson.day);
                     closeAnimation()
                     clearDatas()
                     completeWeek(nextLesson.day)
@@ -95,6 +103,7 @@ if (nextLesson.dom !== ''){
                     firstDay = weekDaysFromCalendarMb[0].textContent
                     lastDay = weekDaysFromCalendarMb[6].textContent
                     goToWeekday(setCentralWeek(nextLesson.day.getDay()))
+                    typeOfAction = 0;
         }) 
 } else {
     console.log('Что-то сломалось')
@@ -130,28 +139,27 @@ function startSlider(){
 }
 
 function goToWeekday(weekDay){
-    window.location.hash = ''
     switch(weekDay){
         case(0):
-        window.location.hash = 'monday-mb'
+        smoothScroll('#monday-mb')
         break;
         case(1):
-        window.location.hash = 'tuesday-mb'
+        smoothScroll('#tuesday-mb')
         break;
         case(2):
-        window.location.hash = 'wednesday-mb'
+        smoothScroll('#wednesday-mb')
         break;
         case(3):
-        window.location.hash = 'thursday-mb'  
+        smoothScroll('#thursday-mb')
         break;
         case(4):
-        window.location.hash = 'friday-mb'  
+        smoothScroll('#friday-mb')
         break;
         case(5):
-        window.location.hash = 'saturday-mb'          
+        smoothScroll('#saturday-mb')      
         break;
         case(6):
-        window.location.hash = 'sunday-mb'  
+        smoothScroll('#sunday-mb')
         break;
     }
 }
