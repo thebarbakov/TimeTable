@@ -169,19 +169,19 @@ const weekLessons = [
         ],[//saturday
             {
             num: '1',
-            title: '',
-            room: '',
-            type: '',
-            teacher: '',
-            until: ''
+            title: 'Социальная психология',
+            room: '407',
+            type: 'Лекция',
+            teacher: 'Васильева Татьяна Витальевна',
+            until: '11.6'
             },
             {
             num: '2',
-            title: '',
-            room: '',
-            type: '',
-            teacher: '',
-            until: ''
+            title: 'Социальная психология',
+            room: '407',
+            type: 'Лекция',
+            teacher: 'Васильева Татьяна Витальевна',
+            until: '11.6'
             },
             {
             num: '3',
