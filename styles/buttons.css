@@ -66,3 +66,30 @@
     
 }
 
+@media (prefers-color-scheme: dark) {
+    .header__button  {
+        filter: invert(50%)
+    }
+
+    .week__button-prev {
+        filter: invert(50%)
+    }
+
+    .week__button-next {
+        filter: invert(50%)
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .header__button  {
+        filter: none
+    }
+
+    .week__button-prev {
+        filter: none
+    }
+
+    .week__button-next {
+        filter: none
+    }
+}

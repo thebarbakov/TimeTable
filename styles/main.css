@@ -115,7 +115,6 @@
     min-width: 90%;
     max-width: 90%;
     height: 75px;
-    background-color: #f1f2f2;
     justify-content: center;
     padding: 0 8px;
     border-radius: 10px;
@@ -451,6 +450,28 @@
     }
     .table__nextweek {
         display: flex;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .lesson  {
+        background-color: #f1f2f2;
+    }
+
+    .lesson_empty{
+        background-color: transparent;
+        border: solid 3px #f1f2f2;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .lesson {
+        background-color: #4d4d4f;
+    }
+
+    .lesson_empty{
+        background-color: transparent;
+        border: solid 3px #4d4d4f;
     }
 }
 
