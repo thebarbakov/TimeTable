@@ -68,17 +68,6 @@ function popupClose() {
     setTimeout(removeClasses, 500)
 }
 
-function setHeight(){
-    let scrollHeight = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight
-      );  
-    popup.style.height = scrollHeight + 'px';
-} 
-
-window.addEventListener(`resize`, event => {setHeight();}, false);
-
 function clearForm(){
     popupTitle.textContent = ''
     popupTime.textContent = '' 
@@ -86,7 +75,3 @@ function clearForm(){
     popupRoom.textContent = '' 
     popupTeacher.textContent = ''
 }
-
-
-
-setHeight();
