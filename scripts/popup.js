@@ -23,8 +23,11 @@ function openPopup(title, type, room, teacher, num, messageType){
     if (title == 'Английский язык') {
         document.querySelector('.popup__url-t').style.display = 'flex';
         document.querySelector('.popup__url-t').setAttribute('href', subject.find(value => value.name == title).urlT)
+        document.querySelector('.popup__url-t-t').style.display = 'flex';
+        document.querySelector('.popup__url-t-t').setAttribute('href', subject.find(value => value.name == title).urlTT)
     } else {
         document.querySelector('.popup__url-t').style.display = 'none';
+        document.querySelector('.popup__url-t-t').style.display = 'none';
     }
     if (subject.find(value => value.name == title) !== undefined && subject.find(value => value.name == title).url !== '') {
         popupUrl.setAttribute('href', subject.find(value => value.name == title).url)

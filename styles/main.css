@@ -323,39 +323,6 @@
     display: none;
 }
 
-.popup__url {
-    display: flex;
-    margin: 0 auto 20px auto;
-    color: #4d4d4f;
-    text-decoration: none;
-    border: #4d4d4f3a 2px solid;
-    padding: 0 5px 2px 5px;
-    border-radius: 5px;
-    width: 140px;
-    justify-content: center;
-    text-align: center;
-}
-
-.popup__url-t {
-    display: flex;
-    margin: 0 auto 20px auto;
-    color: #4d4d4f;
-    text-decoration: none;
-    border: #4d4d4f3a 2px solid;
-    padding: 0 5px 2px 5px;
-    border-radius: 5px;
-    width: 140px;
-    justify-content: center;
-    text-align: center;
-}
-
-
-.popup__url_disabled {
-    pointer-events: none;
-    cursor: default; 
-    color: #f1f2f2;
-}
-
 .table__nextweek {
     display: none;
     margin: 30px auto 0 auto;

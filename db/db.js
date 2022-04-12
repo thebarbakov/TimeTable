@@ -605,6 +605,7 @@ const subject =[{
     url: 'https://vk.com/away.php?utf=1&to=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F15UX3DeHFe0b9K1IyxbakeYde8_Uv7gIC',
     teacher: 'Белышева Маргарита Дмитриевна',
     urlT: 'https://drive.google.com/drive/folders/1q6hrLE4NGl4SI2xvhXqSIlKHcHbNIJ2g',
+    urlTT: 'https://drive.google.com/drive/folders/1d7l83dE-v_t6Agv2XZpLno2gp2P2Db4f'
 }, {
     name: 'Элективный модуль',
     url: '',
