@@ -159,9 +159,7 @@
 .popup__url-t-t {
     display: flex;
     margin: 0 auto 20px auto;
-    color: #4d4d4f;
     text-decoration: none;
-    border: #4d4d4f3a 2px solid;
     padding: 0 5px 2px 5px;
     border-radius: 5px;
     width: 140px;
@@ -197,6 +195,11 @@
         color: white;
         border: white 2px solid;
     }
+
+    .popup__url-t-t {
+        color: white;
+        border: white 2px solid;
+    }
     
     
     .popup__url_disabled {
@@ -218,6 +221,11 @@
     }
     
     .popup__url-t {
+        color: #4d4d4f;
+        border: #4d4d4f3a 2px solid;
+    }
+
+    .popup__url-t-t {
         color: #4d4d4f;
         border: #4d4d4f3a 2px solid;
     }
